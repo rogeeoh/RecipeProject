@@ -1,0 +1,56 @@
+/* 스위치 토글 관련 div 정렬 */
+#switchDiv{
+	text-align: -webkit-center;
+}
+#imgManDiv{
+	text-align: center;
+}
+#imgWomanDiv{
+	text-align: center;
+}
+/* 스위치 토글 */
+input[type=checkbox]{
+  	height: 0;
+  	width: 0;
+  	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 100px;
+	height: 32px;
+	background: #337ab7;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 45px;
+	height: 22px;
+	background: #fff;
+	border-radius: 30px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background : #a94442;
+	text-indent: -9999px;
+	width: 100px;
+	height: 32px;
+}
+
+input:checked + label:after {
+	left: 95%;
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 65px;
+}
+
