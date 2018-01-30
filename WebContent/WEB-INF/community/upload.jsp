@@ -37,7 +37,7 @@
 		while (iter.hasNext()) {
 			FileItem fileItem = (FileItem) iter.next();
 			if (fileItem.isFormField()) {  // File 컴포넌트가 아닌 일반 컴포넌트일 경우
-				out.println(fileItem.getFieldName() + "=" + fileItem.getString("UTF-8") + "<br/>");
+				out.println(fileItem.getFieldName() + "=" + fileItem.getString("euc-kr") + "<br/>");
 			}else{
 				if (fileItem.getSize() > 0) {  //파일이 업로드 되었나 안되었나 체크
 					String fieldName = fileItem.getFieldName();
@@ -46,14 +46,14 @@
 					boolean isInMemory = fileItem.isInMemory();
 					long sizeInBytes = fileItem.getSize();
 					
-					 
-			 		System.out.println("[realDir] : "+ realDir +"<br/>");
-			 		System.out.println("[fieldName] : "+ fieldName +"<br/>");
-			 		System.out.println("[fileName] : "+ fileName +"<br/>");
-			 		System.out.println("[contentType] : "+ contentType +"<br/>");
-			 		System.out.println("[isInMemory] : "+ isInMemory +"<br/>");
-			 		System.out.println("[sizeInBytes] : "+ sizeInBytes +"<br/>");
-			 		
+					/* 
+			 		out.println("[realDir] : "+ realDir +"<br/>");
+			     	out.println("[fieldName] : "+ fieldName +"<br/>");
+			        out.println("[fileName] : "+ fileName +"<br/>");
+			        out.println("[contentType] : "+ contentType +"<br/>");
+			        out.println("[isInMemory] : "+ isInMemory +"<br/>");
+			        out.println("[sizeInBytes] : "+ sizeInBytes +"<br/>");
+			 		*/
 			 		
 			 		out.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + sFunc + ", '"+ realUrl + fileName + "', '완료');</script>");
 

@@ -245,6 +245,22 @@
 a.submenu{
 	text-decoration:none;
 }
+
+/* 5가지 카테고리 nav bar */
+.nav-pills>li>a, .nav-pills>li.active>a {
+    background-color: #fff;
+    border-bottom : 4px solid #4caf50;
+	color: #4caf50;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.nav-pills>li>a:focus, .nav-pills>li>a:hover, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+	background-color: #eeeeee;
+	color: #4caf50;
+	font-size: 20px;
+	font-weight: bold;
+}
 </style>
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
@@ -327,29 +343,26 @@ a.submenu{
 		</div>
 	</div>
 </div>
-
-	<div class="row" style="margin-bottom: 10px">
-		<div class="col-sm-1 hidden-xs"></div>
-		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/recipe" class="submenu">레시피</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/calendar" class="submenu">달력</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/community/free" class="submenu">커뮤니티</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/lecture" class="submenu">강좌</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/mypage" class="submenu">마이페이지</a></div>
-		<div class="col-sm-1 hidden-xs"></div>
-	</div>
-		
-		
+<div class="row" style="margin-bottom: 10px">
+	<ul class="nav nav-pills nav-justified">
+		<li class="active"><a href="/recipe_project/recipe">레시피</a></li>
+		<li><a href="/recipe_project/calendar">달력</a></li>
+		<li><a href="/recipe_project/community/free">커뮤니티</a></li>
+		<li><a href="/recipe_project/lecture">강좌</a></li>
+		<li><a href="/recipe_project/mypage">마이페이지</a></li>
+	</ul>
+</div>
 <div id="mySidenav" class="sidenav">
 	<div class="container"
 		style="background-color: #5cbf60; padding-top: 10px">
 		<span class="sidenav-heading">Home</span> <a href="javascript:void(0)"
 			class="closebtn" onclick="closeNav()">×</a>
 	</div>
-	<a href="#">레시피</a>
-	<a href="#">달력</a>
-	<a href="#">커뮤니티</a>
-	<a href="#">강좌</a>
-	<a href="#">마이페이지</a>
+	<a href="/recipe_project/recipe">레시피</a>
+	<a href="/recipe_project/calendar">달력</a>
+	<a href="/recipe_project/community/free">커뮤니티</a>
+	<a href="/recipe_project/lecture">강좌</a>
+	<a href="/recipe_project/mypage">마이페이지</a>
 </div>
 
 

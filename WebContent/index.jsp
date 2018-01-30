@@ -1,7 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +8,34 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
+<style>
+/* 코르셀 제목 링크 */
+.recipeItems a{
+	color: #4caf50;
+	text-decoration: none;
+}
+.recipeItems a:hover{
+	color: #4caf50;
+	font-weight: bold;
+	text-decoration: none;
+}
+/* 썸네일 효과 */
+.thumbnail:hover{
+	box-shadow: 10px 10px 5px silver;
+	text-decoration: none;
+}
+a.thumbnail:hover {
+	border: 1px solid silver;
+	color: silver;
+}
+</style>
 <body>
 	<jsp:include page="WEB-INF/inc/header.jsp"/>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">	
 			<!-- 레시피 -->			
             <div class="col-md-12">				
-				<h3> <a href="#">레시피 </a></h3>						
+				<h3 class="recipeItems"><a href="#">레시피 </a></h3>						
 				<div class="carousel slide" data-ride="carousel" id="carousel-1">
 					<div class="carousel-inner" role="listbox">
 					
@@ -25,12 +45,12 @@
 								<div class="clearfix"></div>
 							</div>
 							<div class="col-md-2">
-								<div class="thumbnail"><a href="#"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png"></a>
+								<a class="thumbnail" href="#"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
 										<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
 									</div>
-								</div>
+								</a>
 							</div>
 							<div class="col-md-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png"></a>
@@ -187,7 +207,7 @@
 			
 			<!-- 강좌 -->			
             <div class="col-md-12">				
-				<h3> <a href="#">강좌 </a></h3>						
+				<h3 class="recipeItems"><a href="#">강좌 </a></h3>						
 				<div class="carousel slide" data-ride="carousel" id="carousel-2">
 					<div class="carousel-inner" role="listbox">
 					
