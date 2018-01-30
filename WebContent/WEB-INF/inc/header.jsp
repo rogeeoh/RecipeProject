@@ -330,11 +330,11 @@ a.submenu{
 
 	<div class="row" style="margin-bottom: 10px">
 		<div class="col-sm-1 hidden-xs"></div>
-		<div class="col-sm-2 hidden-xs"><a href="#" class="submenu">레시피</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="calendar" class="submenu">달력</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="#" class="submenu">커뮤니티</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="#" class="submenu">강좌</a></div>
-		<div class="col-sm-2 hidden-xs"><a href="mypage" class="submenu">마이페이지</a></div>
+		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/recipe" class="submenu">레시피</a></div>
+		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/calendar" class="submenu">달력</a></div>
+		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/community/free" class="submenu">커뮤니티</a></div>
+		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/lecture" class="submenu">강좌</a></div>
+		<div class="col-sm-2 hidden-xs"><a href="/recipe_project/mypage" class="submenu">마이페이지</a></div>
 		<div class="col-sm-1 hidden-xs"></div>
 	</div>
 		

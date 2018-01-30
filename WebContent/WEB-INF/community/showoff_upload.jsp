@@ -5,8 +5,8 @@
 <head>
 <meta charset="utf-8">
 <title>뽐내기 게시판 수정페이지</title>
-<script src="./ckeditor/ckeditor.js"></script>
-<script src="./js/jquery.min.js"></script>
+<script src="/recipe_project/ckeditor/ckeditor.js"></script>
+<script src="/recipe_project/js/jquery.min.js"></script>
 <script>
 	$(function() {
 		$("#imgInput").on('change', function() {
@@ -31,7 +31,7 @@
 		<div class="row">
 			<form class="form-horizontal col-xs-8 col-xs-offset-2">
 				<div class="form-group" style="text-align: center">
-					<img id="image_section" src="./images/alterRecipeImg.gif"
+					<img id="image_section" src="/recipe_project/images/alterRecipeImg.gif"
 						style="max-width: 100%; max-height: 200px" /> <input type="file"
 						id="imgInput" />
 				</div>
@@ -54,7 +54,7 @@
 					<script>
 						CKEDITOR.replace('editor1', {
 							'filebrowserUploadUrl' : 'upload.jsp?'
-									+ 'realUrl=/Recipe_Project/upload_img/'
+									+ 'realUrl=/recipe_project/upload_img/'
 									+ '&realDir=upload_img'
 						});
 					</script>

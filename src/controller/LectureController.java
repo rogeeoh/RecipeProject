@@ -7,8 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class MyPageController extends HttpServlet {
+public class LectureController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
@@ -17,6 +18,7 @@ public class MyPageController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String cmd = req.getParameter("cmd");
+		String boardNo = req.getParameter("no");
 		
 		/*만약 cmd가 들어오지 않는다면 이건 Main페이지로 이동*/
 		if(cmd == null) {
@@ -27,16 +29,21 @@ public class MyPageController extends HttpServlet {
 		
 		switch(cmd) {
 			case "main":
-				url = "/WEB-INF/mypage/mypage_main.jsp";
+				url = "/WEB-INF/lecture/lecture_main.jsp";
 				break;
-			case "recipe":
-				url = "/WEB-INF/mypage/mypage_myrecipe.jsp";
+			case "write":
+				url = "/WEB-INF/lecture/lecture_upload.jsp";
 				break;
-			case "post":
-				url = "/WEB-INF/mypage/mypage_mypost.jsp";
+			case "modify":
+				// DAO로 해당 글 번호에 해당하는 DTO 가져오기 (미 구현)
+				Object dto = null;
+				req.setAttribute("dto", dto);
+				url = "/WEB-INF/lecture/lecture_modify.jsp";
 				break;
-			case "reply":
-				url = "/WEB-INF/mypage/mypage_myreply.jsp";
+			case "del":
+				// recipeNo에 해당하는 삭제 작업 진행
+				System.out.println(boardNo + "번째 글을 삭제했습니다.");
+				url = "/WEB-INF/lecture/lecture_main.jsp";
 				break;
 		}
 		

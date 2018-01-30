@@ -17,7 +17,7 @@ public class LoginController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("email");
+		String id = req.getParameter("email").toLowerCase();
 		String pw = req.getParameter("password");
 		
 		if(id.equals("admin") && pw.equals("1111")) {
