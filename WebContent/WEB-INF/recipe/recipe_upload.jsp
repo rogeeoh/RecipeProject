@@ -30,19 +30,20 @@
 	<div class="container">
 		<div class="col-xs-2"></div>
 		<div class="col-xs-8">
-			<form>
+			<!-- 업로드 하는 form 시작 -->
+			<form action="boardupload?board=recipe" method="post" enctype="multipart/form-data">
 				<div style="text-align: center">
 					<img id="image_section" src="./images/alterRecipeImg.gif"
-						style="max-width: 100%; max-height: 200px" /> <input type="file"
-						id="imgInput" />
+						style="max-width: 100%; max-height: 200px" />
+					<input type="file" id="imgInput" name="image"/>
 				</div>
 				<div class="form-group" style="margin-top: 20px">
 					<label> 레시피 제목 </label><br> <input type="text"
-						class="form-control">
+						class="form-control" name="title">
 				</div>
 				<div class="form-group">
 					<label> 요리 간단 소개 </label><br> <input type="text"
-						class="form-control">
+						class="form-control" name="intro">
 				</div>
 				<br> <br>
 				<div id="inputRecipeDiv">
@@ -57,10 +58,10 @@
 					</div>
 					<div class="row" style="margin-top: 10px;" id="0">
 						<div class="col-xs-7">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre">
 						</div>
 						<div class="col-xs-3">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre_amount">
 						</div>
 						<div class="col-xs-2">
 							<input type="button" class="btn btn-default" value="삭제"
@@ -70,10 +71,10 @@
 
 					<div class="row" style="margin-top: 10px" id="1">
 						<div class="col-xs-7">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre">
 						</div>
 						<div class="col-xs-3">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre_amount">
 						</div>
 						<div class="col-xs-2">
 							<input type="button" class="btn btn-default" value="삭제"
@@ -83,10 +84,10 @@
 
 					<div class="row" style="margin-top: 10px" id="2">
 						<div class="col-xs-7">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre">
 						</div>
 						<div class="col-xs-3">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="ingre_amount">
 						</div>
 						<div class="col-xs-2">
 							<input type="button" class="btn btn-default" value="삭제"
@@ -99,15 +100,15 @@
 				<div class="form-group">
 					<label> 내용 상세 </label><br>
 					<p class="help-block">상세한 조리법을 적어주세요</p>
-					<textarea name="editor1" id="editor1" row
-						justify-content-centers="10" cols="80">
+					<textarea name="editor" id="editor" row
+						justify-content-centers="10" cols="80" name="editor">
           			    	레시피를 적어주세요!
         			 	</textarea>
 					<script>
-						CKEDITOR.replace('editor1', {
-							'filebrowserUploadUrl' : 'upload.jsp?'
-									+ 'realUrl=/recipe_project/upload_img/'
-									+ '&realDir=upload_img'
+						CKEDITOR.replace('editor', {
+							'filebrowserUploadUrl' : 'imageupload?'
+									+ 'realUrl=/recipe_project/images/recipe/'
+									+ '&realDir=images/recipe/'
 						});
 					</script>
 				</div>
@@ -126,11 +127,18 @@
 			var newItem = document.createElement("div");
 			newItem.setAttribute("id", count);
 			//			newItem.setAttribute("onclick", "delIngredient('recipe" + count + "')");
-			newItem.innerHTML = "<div class='row justify-content-center' style='margin-top: 10px'><div class='col-xs-7'>"
-					+ "<input type='text' class='form-control'></div><div class='col-xs-3'>"
-					+ "<input type='text' class='form-control' id='intro'></div><div class='col-xs-2'>"
-					+ "<input type='button' class='btn btn-default' value='삭제' onclick='delIngredient("
-					+ count + ")'></div></div>";
+			newItem.innerHTML =
+				"<div class='row justify-content-center' style='margin-top: 10px'>" +
+					"<div class='col-xs-7'>" +
+						"<input type='text' class='form-control' name='ingre'>" +
+					"</div>" +
+					"<div class='col-xs-3'>" +
+						"<input type='text' class='form-control' id='intro' name='ingre_amount'>" +
+					"</div>" +
+					"<div class='col-xs-2'>" +
+						"<input type='button' class='btn btn-default' value='삭제' onclick='delIngredient("+ count + ")'>" +
+					"</div>" +
+				"</div>";
 
 			var div = document.getElementById("inputRecipeDiv");
 			div.appendChild(newItem);

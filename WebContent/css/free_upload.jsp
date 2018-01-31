@@ -52,9 +52,9 @@
         			 	</textarea>
 					<script>
 						CKEDITOR.replace('editor1', {
-							'filebrowserUploadUrl' : 'upload.jsp?'
-									+ 'realUrl=/recipe_project/upload_img/'
-									+ '&realDir=upload_img'
+							'filebrowserUploadUrl' : 'upload?'
+									+ 'realUrl=/recipe_project/images/'
+									+ '&realDir=images'
 						});
 					</script>
 				</div>

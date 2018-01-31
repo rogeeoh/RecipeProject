@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../js/bootstrap.min.js" rel="stylesheet">
+<script type="text/javascript" src="/recipe_project/js/jquery-3.2.1.min.js"></script>
+<link href="/recipe_project/css/bootstrap.min.css" rel="stylesheet">
+<link href="/recipe_project/js/bootstrap.min.js" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script>

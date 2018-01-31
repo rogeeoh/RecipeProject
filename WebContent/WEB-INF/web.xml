@@ -82,4 +82,24 @@
 		<servlet-name>showoff</servlet-name>
 		<url-pattern>/community/showoff</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 이미지 업로드 컨트롤러 -->
+	<servlet>
+		<servlet-name>imageupload</servlet-name>
+		<servlet-class>controller.ImageUploadController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>imageupload</servlet-name>
+		<url-pattern>/imageupload</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 게시글 업로드 컨트롤러 -->
+	<servlet>
+		<servlet-name>boardupload</servlet-name>
+		<servlet-class>controller.BoardPostController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>boardupload</servlet-name>
+		<url-pattern>/boardupload</url-pattern>
+	</servlet-mapping>
 </web-app>
