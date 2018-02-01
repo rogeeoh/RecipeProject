@@ -83,9 +83,9 @@ a {
 			<!-- 사이드 메뉴 -->
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#">회원관리</a></li>
-					<li><a href="#">게시물관리</a></li>
-					<li><a href="#">강좌관리</a></li>
+					<li class="active"><a href="manage">회원관리</a></li>
+					<li><a href="manage?cmd=board">게시물관리</a></li>
+					<li><a href="manage?cmd=lecture">강좌관리</a></li>
 				</ul>
 			</div>
 			<!-- 메인 컨텐츠 -->
@@ -138,12 +138,14 @@ a {
         	/* 맨 처음 브라우저가 로드되는 시점에 호출  
         	 * autoload 속성이 true여야지만 실행 */
         	 loadData: function(filter) {
-             	//alert('loadData');
-             	var promise = $.ajax({
+                var d = $.Deferred();
+             	$.ajax({
 				    type: "GET",
 				    url: "ZZZ.jsp",
-				});
-				return promise; 
+				}).done(function(result){
+                    d.resolve(result);
+                });
+				return d.promise(); 
              },
             /* +버튼이 눌리는 시점에 호출 */
             insertItem: function(item) {
@@ -197,7 +199,6 @@ a {
                     name: "pastor",
                     title: "교역자",
                     type: "text",
-                    cellRenderer: myRend
                 },
                 {
                     align: "center",
@@ -205,7 +206,6 @@ a {
                     name: "elder",
                     title: "장로",
                     type: "text",
-                    cellRenderer: myRend
                 },
                 {
                     align: "center",
@@ -213,7 +213,6 @@ a {
                     name: "cheif",
                     title: "팀장",
                     type: "text",
-                    cellRenderer: myRend
                 },
                 {
                     align: "center",
@@ -221,7 +220,6 @@ a {
                     name: "manager",
                     title: "총무",
                     type: "text",
-                    cellRenderer: myRend
                 },
                 {
                     align: "center",

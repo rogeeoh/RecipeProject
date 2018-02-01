@@ -102,4 +102,14 @@
 		<servlet-name>boardupload</servlet-name>
 		<url-pattern>/boardupload</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 관리자 컨트롤러 -->
+	<servlet>
+		<servlet-name>manage</servlet-name>
+		<servlet-class>controller.ManageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>manage</servlet-name>
+		<url-pattern>/manage</url-pattern>
+	</servlet-mapping>
 </web-app>

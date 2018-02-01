@@ -83,9 +83,9 @@ a {
 			<!-- 사이드 메뉴 -->
 			<div class="col-md-3">
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#">회원관리</a></li>
-					<li class="active"><a href="#">게시물관리</a></li>
-					<li><a href="#">강좌관리</a></li>
+					<li><a href="manage">회원관리</a></li>
+					<li class="active"><a href="manage?cmd=board">게시물관리</a></li>
+					<li><a href="manage?cmd=lecture">강좌관리</a></li>
 				</ul>
 			</div>
 			<!-- 메인 컨텐츠 -->
