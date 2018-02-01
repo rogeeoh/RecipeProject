@@ -121,6 +121,7 @@ a {
     $("#jsGrid").jsGrid({
         width: "100%",
         height: "800px",
+        filtering: true,
  		/* 데이터 추가 여부 */
         inserting: true,
         /* 데이터 수정 여부 */
@@ -139,13 +140,18 @@ a {
         	 * autoload 속성이 true여야지만 실행 */
         	 loadData: function(filter) {
                 var d = $.Deferred();
-             	$.ajax({
-				    type: "GET",
-				    url: "ZZZ.jsp",
+              	$.ajax({
+				    type: "POST",
+				    url: "ajax?board=member",
 				}).done(function(result){
-                    d.resolve(result);
-                });
-				return d.promise(); 
+					result = $.grep(result, function(item) {
+						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
+						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+			        });
+			        d.resolve(result);
+				});
+		        return d.promise(); 
+
              },
             /* +버튼이 눌리는 시점에 호출 */
             insertItem: function(item) {

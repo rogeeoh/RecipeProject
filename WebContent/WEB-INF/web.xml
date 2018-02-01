@@ -112,4 +112,14 @@
 		<servlet-name>manage</servlet-name>
 		<url-pattern>/manage</url-pattern>
 	</servlet-mapping>
+	
+	<!-- ajax 테스 -->
+	<servlet>
+		<servlet-name>ajax</servlet-name>
+		<servlet-class>controller.AjaxController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ajax</servlet-name>
+		<url-pattern>/ajax</url-pattern>
+	</servlet-mapping>
 </web-app>
