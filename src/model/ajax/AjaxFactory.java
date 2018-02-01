@@ -12,25 +12,25 @@ public class AjaxFactory {
 		return instance;
 	}
 	
-	public Command createInstance(String command) {
+	public Command createInstance(String board, String command) {
 		/* 만약 parameter가 null이면 기본 페이지로 이동하게 설정 */
-		if(command == null) {
-			return new AjaxMemberCommand();
+		if(board == null) {
+			return new AjaxMemberCommand(command);
 		}
 		
 		Command iCmd = null;
-		switch(command) {
+		switch(board) {
 			case "member":
 				// 글 쓰기
-				iCmd = new AjaxMemberCommand();
+				iCmd = new AjaxMemberCommand(command);
 				break;
 			case "board":
 				// 글 수정
-				//iCmd = new AjaxBoardCommand();
+				//iCmd = new AjaxBoardCommand(command);
 				break;
 			case "lecture":
 				// 글 삭제
-				//iCmd = new AjaxLectureCommand();
+				//iCmd = new AjaxLectureCommand(command);
 				break;
 		}
 	

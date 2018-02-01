@@ -155,32 +155,56 @@ a {
              },
             /* +버튼이 눌리는 시점에 호출 */
             insertItem: function(item) {
-            	alert('insertItem');
-                return $.ajax({
+            	//var d = $.Deferred();
+            	$.ajax({
                     type: "POST",
-                    url: "jsonTest",
+                    url: "ajax?board=member&cmd=add",
                     data: item
-                });
+                }).done(function(result){
+					result = $.grep(result, function(item) {
+						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
+						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+			        });
+					return result;
+			        //d.resolve(result);
+				});
+		        return false;//d.promise(); 
             },
             /* 수정 후 체크버튼을 누르는 시점에 호출
              * 수정된 값이 클라이언트에서 보여야하기 때문에 Json return이 필요함 */
             updateItem: function(item) {
-            	alert('updateItem');
-                return $.ajax({
+            	//var d = $.Deferred();
+            	$.ajax({
                     type: "POST",
-                    url: "jsonTest",
+                    url: "ajax?board=member&cmd=update",
                     data: item
-                });
+                }).done(function(result){
+					result = $.grep(result, function(item) {
+						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
+						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+			        });
+					return result;
+			        //d.resolve(result);
+				});
+		        return false;//d.promise(); 
             },
             /* 삭제 후 confirm되는 시점에 호출
              * 클라이언트에서 삭제가 바로 되기 때문에 Json return이 필요 없음 */
             deleteItem: function(item) {
-            	alert('deleteItem');
-                return true;/*$.ajax({
+            	//var d = $.Deferred();
+            	$.ajax({
                     type: "POST",
-                    url: "delete_item",
+                    url: "ajax?board=member&cmd=del",
                     data: item
-                });*/
+                }).done(function(result){
+					result = $.grep(result, function(item) {
+						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
+						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+			        });
+					return result;
+			        //d.resolve(result);
+				});
+		        return false;//d.promise();
             },
         },
         /* 테이블 필드명과 데이터 속성을 설정해주는 곳 */
@@ -188,43 +212,49 @@ a {
                 {
                     align: "center",
                     width: "auto",
-                    name: "team1",
-                    title: "본부사역팀",
-                    type: "text"
+                    name: "mem_no",
+                    title: "맴버번호",
                 },
                 {
                     align: "center",
                     width: "auto",
-                    name: "team2",
-                    title: "사역팀",
-                    type: "text"
-                },
-                {
-                    align: "center",
-                    width: "auto",
-                    name: "pastor",
-                    title: "교역자",
+                    name: "id",
+                    title: "아이디",
                     type: "text",
                 },
                 {
                     align: "center",
                     width: "auto",
-                    name: "elder",
-                    title: "장로",
+                    name: "pw",
+                    title: "비밀번호",
                     type: "text",
                 },
                 {
                     align: "center",
                     width: "auto",
-                    name: "cheif",
-                    title: "팀장",
+                    name: "birth",
+                    title: "생년월일",
                     type: "text",
                 },
                 {
                     align: "center",
                     width: "auto",
-                    name: "manager",
-                    title: "총무",
+                    name: "gender",
+                    title: "성별",
+                    type: "text",
+                },
+                {
+                    align: "center",
+                    width: "auto",
+                    name: "nick",
+                    title: "닉네임",
+                    type: "text",
+                },
+                {
+                    align: "center",
+                    width: "auto",
+                    name: "pic_url",
+                    title: "사진위치",
                     type: "text",
                 },
                 {

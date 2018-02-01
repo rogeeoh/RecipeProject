@@ -27,9 +27,10 @@ public class AjaxController extends HttpServlet{
 		resp.setContentType("json");
 		
 		String board = req.getParameter("board");
+		String command = req.getParameter("cmd");
 		
 		AjaxFactory ajaxFactory = AjaxFactory.newInstance();
-		Command ajaxCmd = ajaxFactory.createInstance(board);
+		Command ajaxCmd = ajaxFactory.createInstance(board, command);
 		String json = (String)ajaxCmd.processCommand(req, resp);
 		
 		PrintWriter out = resp.getWriter();
