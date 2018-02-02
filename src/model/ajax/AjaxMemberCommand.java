@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -72,9 +73,9 @@ public class AjaxMemberCommand implements Command{
 	
 	private void endConnection() {
 		try {
-			con.close();
-			pstmt.close();
-			rs.close();
+			if(con != null)	con.close();
+			if(pstmt != null) pstmt.close();
+			if(rs != null) rs.close();
 		} catch (SQLException err) {
 			System.out.println("Connection Close Error" + err);
 		}
@@ -88,11 +89,11 @@ public class AjaxMemberCommand implements Command{
 		
 		if(command != null) {
 			switch(command) {
-				case "add":
-					add(req, resp);
+				case "insert":
+					insert(req, resp);
 					break;
-				case "del":
-					del(req, resp);
+				case "delete":
+					delete(req, resp);
 					break;
 				case "update":
 					update(req, resp);
@@ -106,84 +107,57 @@ public class AjaxMemberCommand implements Command{
 		return json;
 	}
 	
-	private void add(HttpServletRequest req, HttpServletResponse resp) {
-		Gson gson = new Gson();
-		gson.toJson(req.getParameterNames());
-		
-		Enumeration e = req.getParameterNames();
-		Queue<String> queue = new LinkedList<>(); 
-		while(e.hasMoreElements()) {
-			String key = (String)e.nextElement();
-			String value = req.getParameter(key);
-			
-			queue.add(value);
-			System.out.println(key + "," + value);
-		}
-		queue.poll();
-		queue.poll();
-		queue.poll();
-		
+	private void insert(HttpServletRequest req, HttpServletResponse resp) {
+		String id = (String)req.getParameter("id");
+		String pw = (String)req.getParameter("pw");
+		String birth = (String)req.getParameter("birth");
+		if(birth.equals(""))
+			birth = null;
+		String gender = (String)req.getParameter("gender");
+		String nick = (String)req.getParameter("nick");
+		String pic_url = (String)req.getParameter("pic_url");
+
 		try {
 			String sql = "INSERT INTO member(id, pw, birth, gender, nick, pic_url)"
-					+ " values (?, ?, ?, ?, ?, ?)";
+				+ " values (?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
-			
+		
 			int cnt = 1;
-			while(!queue.isEmpty()) {
-				pstmt.setString(cnt, queue.poll());
-				cnt++;
-			}
-			
+			pstmt.setString(cnt++, id);
+			pstmt.setString(cnt++, pw);
+			pstmt.setString(cnt++, birth);
+			pstmt.setString(cnt++, gender);
+			pstmt.setString(cnt++, nick);
+			pstmt.setString(cnt++, pic_url);
+		
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
-			System.out.println("Insert 하다 디짐ㅋ" + err);
-		}
-	} // end add()
+			System.out.println("Insert 하다 프로세스 Exception 발생" + err);
+		}		
+	} // end insert()
 	
-	private void del(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("del method called");
-		
-		Gson gson = new Gson();
-		gson.toJson(req.getParameterNames());
-		
-		Enumeration e = req.getParameterNames();
-		Queue<String> queue = new LinkedList<>(); 
-		while(e.hasMoreElements()) {
-			String key = (String)e.nextElement();
-			String value = req.getParameter(key);
-			
-			queue.add(value);
-			System.out.println(key + "," + value);
-		}
-		queue.poll();
-		queue.poll();
+	private void delete(HttpServletRequest req, HttpServletResponse resp) {
+		String mem_no = req.getParameter("mem_no");
 		
 		try {
 			String sql = "DELETE FROM member WHERE mem_no = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, queue.poll());
+			pstmt.setString(1, mem_no);
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
-			System.out.println("DELETE 하다 디짐ㅋ" + err);
+			System.out.println("DELETE 하다 프로세스 Exception 발생" + err);
 		}
-	} // end del()
+	} // end delete()
 	
 	private void update(HttpServletRequest req, HttpServletResponse resp) {
-		Gson gson = new Gson();
-		gson.toJson(req.getParameterNames());
-		
-		Enumeration e = req.getParameterNames();
-		Queue<String> queue = new LinkedList<>(); 
-		while(e.hasMoreElements()) {
-			String key = (String)e.nextElement();
-			String value = req.getParameter(key);
-			
-			queue.add(value);
-			System.out.println(key + "," + value);
-		}
-		queue.poll();
-		queue.poll();
-		int mem_no = Integer.parseInt(queue.poll());
+		System.out.println("update 실행");
+		int mem_no = Integer.parseInt((String)req.getParameter("mem_no"));
+		String id = (String)req.getParameter("id");
+		String pw = (String)req.getParameter("pw");
+		String birth = (String)req.getParameter("birth");
+		String gender = (String)req.getParameter("gender");
+		String nick = (String)req.getParameter("nick");
+		String pic_url = (String)req.getParameter("pic_url");
 		
 		try {
 			String sql = "UPDATE member SET id = ?, pw = ?, birth = ?, gender = ?, nick = ?,"
@@ -192,15 +166,17 @@ public class AjaxMemberCommand implements Command{
 			pstmt = con.prepareStatement(sql);
 			
 			int cnt = 1;
-			while(!queue.isEmpty()) {
-				pstmt.setString(cnt, queue.poll());
-				cnt++;
-			}
-			pstmt.setInt(cnt, mem_no);
+			pstmt.setString(cnt++, id);
+			pstmt.setString(cnt++, pw);
+			pstmt.setString(cnt++, birth);
+			pstmt.setString(cnt++, gender);
+			pstmt.setString(cnt++, nick);
+			pstmt.setString(cnt++, pic_url);
+			pstmt.setInt(cnt++, mem_no);
 			
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
-			System.out.println("Update 하다 디짐ㅋ" + err);
+			System.out.println("update 하다 프로세스 Exception 발생" + err);
 		}
 	} // end update()
 	
