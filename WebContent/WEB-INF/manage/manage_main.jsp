@@ -145,8 +145,12 @@ a {
 				    url: "ajax?board=member",
 				}).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+					   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+					   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+					   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+					   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+					   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 			        d.resolve(result);
 				});
@@ -162,8 +166,12 @@ a {
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -180,8 +188,12 @@ a {
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -198,8 +210,12 @@ a {
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -245,7 +261,7 @@ a {
                     name: "gender",
                     title: "성별",
                     type: "select",
-                    items: [{Name:"남"}, {Name:"여"}],
+                    items: [{Name:""}, {Name:"남"}, {Name:"여"}],
                 	valueField :"Name",
                 	textField:"Name",
                 },
