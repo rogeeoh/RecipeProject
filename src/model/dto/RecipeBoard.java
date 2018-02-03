@@ -1,6 +1,6 @@
 package model.dto;
 
-public class Recipe {
+public class RecipeBoard {
 	private int recp_no;
 	private String recp_name;
 	private String nick;
