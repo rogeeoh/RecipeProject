@@ -29,6 +29,7 @@ public class LoginController extends HttpServlet {
 		LoginFactory loginFactory = LoginFactory.newInstance();
 		Command interfaceCmd = loginFactory.createInstance(cmd);
 		String url = (String)interfaceCmd.processCommand(req, resp);
-		resp.sendRedirect(url);
+		RequestDispatcher view = req.getRequestDispatcher(url);
+		view.forward(req, resp);
 	}
 }

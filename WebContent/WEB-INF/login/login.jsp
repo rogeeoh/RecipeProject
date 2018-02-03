@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -92,11 +92,15 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
+        	<% if(request.getAttribute("loginFail") == null){ %>
             <h1 class="text-center login-title">로그인해주세요</h1>
+        <%  }else{  %>
+        		<h1 class="text-center login-title" style="color: red;">아이디나 패스워드가 틀렸습니다.</h1>
+        <%  }  %>
             <div class="account-wall">
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
-                <form class="form-signin" action="login.do?cmd=login">
+                <form class="form-signin" method="post" action="login.do?cmd=login">
 	                <input type="text" class="form-control" placeholder="Email" name="email" required autofocus>
 	                <input type="password" class="form-control" placeholder="Password" name="password" required>
 	                <button class="btn btn-lg btn-primary btn-block" type="submit">
