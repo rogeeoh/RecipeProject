@@ -33,11 +33,6 @@ public class ImageUploadController extends HttpServlet{
 		
 		String cmd = req.getParameter("cmd");
 		PrintWriter out = resp.getWriter();
-//		
-//		switch(cmd) {
-//			case "img":
-//				break;
-//		}
 		
 		boolean isMultipart = ServletFileUpload.isMultipartContent(req);  //multipart로 전송되었는가 체크
 		if (isMultipart) {

@@ -16,7 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.Command;
 import model.FactoryPostBoard;
-import model.RecipeFactory;
+import model.recipe.RecipeFactory;
 
 public class RecipeController extends HttpServlet{
 	@Override

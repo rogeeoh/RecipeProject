@@ -1,4 +1,4 @@
-package model;
+package model.recipe;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,15 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import model.Command;
+import model.login.LoginCommand;
+
 public class RecipeWriteCommand implements Command{
 
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+		/* 만약 적합한 아이디가 아니라면 */
+		if(req.getSession().getAttribute("id") == null)
+			return "/WEB-INF/login/login.jsp";
 		
 		String url = "/WEB-INF/recipe/recipe_upload.jsp";
-		
 		return url;
 	}
 }

@@ -1,29 +1,20 @@
-package model.login;
+package model.recipe;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Command;
 
-public class LoginPageCommand implements Command{
+public class RecipeMainCommand implements Command{
 
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-		String url = null;
-		if(req.getSession().getAttribute("id") != null) {
-			/* 만약 로그인된 상태에서 접속을 시도하면 차단 */
-			url = "index";
-		}
-		else {
-			url = "WEB-INF/login/login.jsp";
-		}
-		
+
+		String url = "/WEB-INF/recipe/recipe_main.jsp";
 		return url;
 	}
 }

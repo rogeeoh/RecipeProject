@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Command;
-import model.RecipeFactory;
 import model.login.LoginFactory;
+import model.recipe.RecipeFactory;
 
 public class LoginController extends HttpServlet {
 	@Override
@@ -29,6 +29,12 @@ public class LoginController extends HttpServlet {
 		LoginFactory loginFactory = LoginFactory.newInstance();
 		Command interfaceCmd = loginFactory.createInstance(cmd);
 		String url = (String)interfaceCmd.processCommand(req, resp);
+		/* 만약 로그인을 성공한 상황이라면 */
+		if(url.equals("index.jsp")) {
+			resp.sendRedirect(url);
+			return;
+		}
+		
 		RequestDispatcher view = req.getRequestDispatcher(url);
 		view.forward(req, resp);
 	}

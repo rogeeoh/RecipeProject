@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Command;
-import model.RecipeFactory;
 import model.ajax.AjaxFactory;
+import model.recipe.RecipeFactory;
 
 public class AjaxController extends HttpServlet{
 	@Override

@@ -1,4 +1,4 @@
-package model;
+package model.recipe;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,24 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class RecipeModifyCommand implements Command{
+import model.Command;
+
+public class RecipeDeleteCommand implements Command{
 	private Integer recpNo;
 	
-	public RecipeModifyCommand(Integer recpNo) {
+	public RecipeDeleteCommand(Integer recpNo) {
 		this.recpNo = recpNo;
 	}
-	
 	
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		// DAO로 해당 글 번호에 해당하는 DTO 가져와서 화면에 출력하기
-		Object dto = null;
-		req.setAttribute("dto", dto);
-		System.out.println(recpNo + "번째 글을 수정합니다.");
-
-		String url = "/WEB-INF/recipe/recipe_modify.jsp";
+		/* 만약 적합한 아이디가 아니라면 */
+		if(req.getSession().getAttribute("id") == null)
+			return "/WEB-INF/login/login.jsp";
+		/* recpNo번에 해당하는 글을 삭제하는 작업 진행 */
+		
+		String url = "/WEB-INF/recipe/recipe_main.jsp";
 		return url;
 	}
 }

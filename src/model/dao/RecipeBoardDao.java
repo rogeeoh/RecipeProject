@@ -89,20 +89,17 @@ public class RecipeBoardDao {
 			/* 수정 필요 */
 			/* 수정 필요 */
 			String sql = "INSERT INTO recipe(recp_name, nick, date, cnt, likes, recp_intro, url, ingre, editor)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " values (?, ?, now(), 0, 0, ?, ?, ?, ?)";
 			con = pool.getConnection();
 			pstmt = con.prepareStatement(sql);
 		
 			/* 수정 필요 */
 			pstmt.setString(1, recp_name);
 			pstmt.setString(2, nick);
-			pstmt.setString(3, date);
-			pstmt.setInt(4, cnt);
-			pstmt.setInt(5, likes);
-			pstmt.setString(6, recp_intro);
-			pstmt.setString(7, url);
-			pstmt.setString(8, ingre);
-			pstmt.setString(9, editor);
+			pstmt.setString(3, recp_intro);
+			pstmt.setString(4, url);
+			pstmt.setString(5, ingre);
+			pstmt.setString(6, editor);
 		
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
@@ -115,7 +112,7 @@ public class RecipeBoardDao {
 		}
 	}
 	
-	public void deleteMember(RecipeBoard recipeDto) {
+	public void deleteBoard(RecipeBoard recipeDto) {
 		try {
 			String sql = "DELETE FROM recipe WHERE recp_no = ?";
 			con = pool.getConnection();

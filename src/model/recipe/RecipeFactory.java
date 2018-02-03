@@ -1,4 +1,7 @@
-package model;
+package model.recipe;
+
+import model.Command;
+import model.login.LoginCommand;
 
 // Factory Pattern
 public class RecipeFactory {

@@ -1,9 +1,10 @@
 package model;
 
+import model.recipe.RecipePostCommand;
+
 // Factory Pattern
 public class FactoryPostBoard {
 	private FactoryPostBoard() {}
-	
 	public static FactoryPostBoard instance = new FactoryPostBoard();
 	
 	public static FactoryPostBoard newInstance() {

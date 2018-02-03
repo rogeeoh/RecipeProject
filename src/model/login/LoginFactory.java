@@ -16,13 +16,13 @@ public class LoginFactory {
 		Command iCmd = null;
 		
 		switch(command) {
-			case "login_page":
-				// 로그인페이지로 이
-				iCmd = new LoginPageCommand();
-				break;
 			case "login":
-				// 로그인 시도
+				// 로그인페이지로 이동
 				iCmd = new LoginCommand();
+				break;
+			case "login_try":
+				// 로그인 시도
+				iCmd = new LoginTryCommand();
 				break;
 			case "logoff":
 				// 로그오프

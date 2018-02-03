@@ -280,10 +280,10 @@ a.submenu{
 					href="http://clashhacks.in/">Link 5</a></li>
 			<%if(session.getAttribute("id") == null){%>
 				<li class="upper-links"><a class="links"
-				href="/recipe_project/login.do?cmd=login_page">로그인</a></li>						
+				href="/recipe_project/login?cmd=login">로그인</a></li>						
 			<%}else {%>
 				<li class="upper-links"><a class="links"
-				href="/recipe_project/login.do?cmd=logoff">로그오프</a></li>
+				href="/recipe_project/login?cmd=logoff">로그오프</a></li>
 			<%} %>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/"> <svg class="" width="16px"
