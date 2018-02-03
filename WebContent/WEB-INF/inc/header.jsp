@@ -278,8 +278,13 @@ a.submenu{
 					href="http://clashhacks.in/">Link 4</a></li>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/">Link 5</a></li>
+			<%if(session.getAttribute("id") == null){%>
 				<li class="upper-links"><a class="links"
-					href="http://clashhacks.in/">Link 6</a></li>
+				href="/recipe_project/login.html">로그인</a></li>						
+			<%}else {%>
+				<li class="upper-links"><a class="links"
+				href="/recipe_project/login.do?cmd=logoff">로그오프</a></li>
+			<%} %>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/"> <svg class="" width="16px"
 							height="12px" style="overflow: visible;">
@@ -315,8 +320,8 @@ a.submenu{
 					</span>
 				</h2>
 				<h1 style="margin: 0px;">
-					<span class="largenav">레시피
-					</span>
+					<a href="/recipe_project"><span class="largenav">레시피
+					</span></a>
 				</h1>
 			</div>
 			<div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
