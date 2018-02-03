@@ -11,9 +11,17 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.Command;
+import model.dao.IngreDao;
+import model.dao.RecipeBoardDao;
+import model.dto.RecipeBoard;
 
 public class RecipePostCommand implements Command{
-
+	private String recpNo;
+	
+	public RecipePostCommand(String recpNo) {
+		this.recpNo = recpNo;
+	}
+	
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -32,32 +40,44 @@ public class RecipePostCommand implements Command{
 		String intro = multi.getParameter("intro");
 		String[] ingre = multi.getParameterValues("ingre");
 		String[] ingreAmount = multi.getParameterValues("ingre_amount");
-		String editor = multi.getParameter("editor"); 
+		String editor = multi.getParameter("editor1"); 
 		
 		Enumeration enumer = multi.getFileNames();
-		while(enumer.hasMoreElements()){
-			// 파일 이름을 하나씩 받아온다.
-			String name = (String)enumer.nextElement();
-			System.out.println("실제 파일명 : " + multi.getOriginalFileName(name));
-			System.out.println("저장될 파일명 : " + multi.getFilesystemName(name));
-			System.out.println("DB 저장경로 : " + dir + multi.getFilesystemName(name));
-			// System.out.println("파일 타입: " + multi.getContentType(name));
-			//File f = multi.getFile(name);
-			//System.out.println("파일 크기 : " + f.length() + "byte");
-			//System.out.println("파일 경로 : " + f.getPath());
-		}
+		String picUrl = dir + multi.getFilesystemName((String)enumer.nextElement());
 		
-		System.out.println("title : " + title);
-		System.out.println("intro : " + intro);
+		String ingres = "";
 		for(int i = 0; i < ingre.length; ++i) {
-			System.out.println("ingre " + i + " : " + ingre[i] + ", " + ingreAmount[i]);
+			ingres += ingre[i] + ":" + ingreAmount[i];
+			if(i == ingre.length - 1)
+				break;
+			ingres += ",";
 		}
-		System.out.println("editor : " + editor);
 		
+		RecipeBoard recipeDto = new RecipeBoard();
+		/* dto 만들어서 보내줌 */
+		if(recpNo != null)
+			recipeDto.setRecp_no(Integer.parseInt(recpNo));
+		recipeDto.setUrl(picUrl);
+		recipeDto.setRecp_name(title);
+		recipeDto.setRecp_intro(intro);
+		recipeDto.setIngre(ingres);
+		recipeDto.setEditor(editor);
+		
+		RecipeBoardDao recpDao = new RecipeBoardDao();
+		IngreDao ingreDao = new IngreDao();
+		
+		String url = null;
+		if(recpNo == null) {
+			recpDao.insertBoard(recipeDto);
+			url = "/WEB-INF/recipe/recipe_main.jsp";
+		}
+		else{
+			recpDao.updateBoard(recipeDto);
+			/* 해당 글로 이동하는 url을 잡아줄것 */
+			url = "/WEB-INF/recipe/recipe_main.jsp";
+		}
 		
 		// 수정 필요함; 내가 쓴 글로 이동하도록 경로를 잡아주어야 함
-		String url = "/WEB-INF/recipe/recipe_main.jsp";
-		
 		return url;
 	}
 }

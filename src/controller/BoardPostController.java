@@ -29,9 +29,10 @@ public class BoardPostController extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		
 		String board = req.getParameter("board");
+		String no = req.getParameter("no");
 		
 		FactoryPostBoard factory = FactoryPostBoard.newInstance();
-		Command interfaceCmd = factory.createInstance(board);
+		Command interfaceCmd = factory.createInstance(board, no);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 
 		RequestDispatcher view = req.getRequestDispatcher(url);

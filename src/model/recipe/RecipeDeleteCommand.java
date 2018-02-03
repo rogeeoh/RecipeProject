@@ -12,6 +12,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.Command;
+import model.dao.RecipeBoardDao;
 
 public class RecipeDeleteCommand implements Command{
 	private Integer recpNo;
@@ -28,6 +29,8 @@ public class RecipeDeleteCommand implements Command{
 		if(req.getSession().getAttribute("id") == null)
 			return "/WEB-INF/login/login.jsp";
 		/* recpNo번에 해당하는 글을 삭제하는 작업 진행 */
+		
+		new RecipeBoardDao().deleteBoard(recpNo);
 		
 		String url = "/WEB-INF/recipe/recipe_main.jsp";
 		return url;

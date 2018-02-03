@@ -2,6 +2,7 @@ package model.recipe;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,10 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.Command;
+import model.dao.IngreDao;
+import model.dao.RecipeBoardDao;
+import model.dto.Ingre;
+import model.dto.RecipeBoard;
 
 public class RecipeModifyCommand implements Command{
 	private Integer recpNo;
@@ -29,10 +34,12 @@ public class RecipeModifyCommand implements Command{
 		if(req.getSession().getAttribute("id") == null)
 			return "/WEB-INF/login/login.jsp";
 		
-		// DAO로 해당 글 번호에 해당하는 DTO 가져와서 화면에 출력하기
-		Object dto = null;
-		req.setAttribute("dto", dto);
-		System.out.println(recpNo + "번째 글을 수정합니다.");
+		
+		RecipeBoard recipe = new RecipeBoardDao().getBoard(recpNo);
+		ArrayList<Ingre> ingreList = new IngreDao().getIngreList(recpNo);
+		
+		req.setAttribute("recipe", recipe);
+		req.setAttribute("ingreList", ingreList);
 
 		String url = "/WEB-INF/recipe/recipe_modify.jsp";
 		return url;
