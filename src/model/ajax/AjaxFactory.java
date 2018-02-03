@@ -21,15 +21,12 @@ public class AjaxFactory {
 		Command iCmd = null;
 		switch(board) {
 			case "member":
-				// 글 쓰기
 				iCmd = new AjaxMemberCommand(command);
 				break;
 			case "board":
-				// 글 수정
-				//iCmd = new AjaxBoardCommand(command);
+				iCmd = new AjaxBoardCommand(command);
 				break;
 			case "lecture":
-				// 글 삭제
 				//iCmd = new AjaxLectureCommand(command);
 				break;
 		}

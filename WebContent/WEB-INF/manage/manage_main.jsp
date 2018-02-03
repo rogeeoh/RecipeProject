@@ -145,8 +145,12 @@ a {
 				    url: "ajax?board=member",
 				}).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+					   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+					   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+					   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+					   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+					   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 			        d.resolve(result);
 				});
@@ -158,12 +162,16 @@ a {
             	//var d = $.Deferred();
             	$.ajax({
                     type: "POST",
-                    url: "ajax?board=member&cmd=add",
+                    url: "ajax?board=member&cmd=insert",
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -180,8 +188,12 @@ a {
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -194,12 +206,16 @@ a {
             	//var d = $.Deferred();
             	$.ajax({
                     type: "POST",
-                    url: "ajax?board=member&cmd=del",
+                    url: "ajax?board=member&cmd=delete",
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
-						return (!filter.pastor || item.pastor.indexOf(filter.pastor) > -1)
-						    && (!filter.elder || item.elder.indexOf(filter.elder) > -1)
+						return (!filter.id || item.id.indexOf(filter.id) > -1)
+				   		 && (!filter.pw || item.pw.indexOf(filter.pw) > -1)
+				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
+				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
+				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
+				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
 			        });
 					return result;
 			        //d.resolve(result);
@@ -221,6 +237,7 @@ a {
                     name: "id",
                     title: "아이디",
                     type: "text",
+                    validate: "required",
                 },
                 {
                     align: "center",
@@ -228,6 +245,7 @@ a {
                     name: "pw",
                     title: "비밀번호",
                     type: "text",
+                    validate: { validator: "rangeLength", param: [6, 20] }
                 },
                 {
                     align: "center",
@@ -235,13 +253,17 @@ a {
                     name: "birth",
                     title: "생년월일",
                     type: "text",
+                    validate: "required",
                 },
                 {
                     align: "center",
                     width: "auto",
                     name: "gender",
                     title: "성별",
-                    type: "text",
+                    type: "select",
+                    items: [{Name:""}, {Name:"남"}, {Name:"여"}],
+                	valueField :"Name",
+                	textField:"Name",
                 },
                 {
                     align: "center",
@@ -249,6 +271,7 @@ a {
                     name: "nick",
                     title: "닉네임",
                     type: "text",
+                    validate: "required",
                 },
                 {
                     align: "center",
