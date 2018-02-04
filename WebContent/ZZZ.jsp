@@ -1,20 +1,10 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page contentType="json; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<HTML>
-<head>
-</head>
-<%
-ArrayList<String> arList = new ArrayList();
-arList.add("one");
-arList.add("two");
-arList.add("three");
-request.setAttribute("list", arList);
+<%@page import="model.dao.MemberDao"%>
+<%@page import="java.util.Enumeration"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<% String email = request.getParameter("email");
+	boolean isUnique = new MemberDao().isUniqueEmail(email);
+	if(isUnique)
+		out.println("true");
+	else
+		out.println("false");
 %>
-<body>
- <c:forEach items="${list}" var="i" varStatus="status">
- 	${i}, ${status.count}<br>
- </c:forEach >
-</body>
-</HTML>

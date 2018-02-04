@@ -5,6 +5,11 @@ public class Ingre {
 	private String ingre;
 	private String amount;
 	
+	@Override
+	public String toString() {
+		return "Ingre [recp_no=" + recp_no + ", ingre=" + ingre + ", amount=" + amount + "]";
+	}
+	
 	public int getRecp_no() {
 		return recp_no;
 	}

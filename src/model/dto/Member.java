@@ -8,13 +8,23 @@ public class Member {
 	private String birth;
 	private String gender;
 	private String nick;
+	private String tel;
 	private String pic_url;
 	
 	@Override
 	public String toString() {
 		return "Member [mem_no=" + mem_no + ", id=" + id + ", pw=" + pw + ", birth=" + birth + ", gender=" + gender
-				+ ", nick=" + nick + ", pic_url=" + pic_url + "]";
+				+ ", nick=" + nick + ", tel=" + tel + ", pic_url=" + pic_url + "]";
 	}
+
+	public String getTel() {
+		return tel;
+	}
+	
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	
 	public int getMem_no() {
 		return mem_no;
 	}

@@ -20,6 +20,7 @@ public class MemberDao {
 			pool = DBConnectionMgr.getInstance();
 		} catch (Exception err) {
 			System.out.println("DBConnnectionMgr.getInstance() fail" + err);
+			err.printStackTrace();
 		}
 	}
 	
@@ -45,8 +46,10 @@ public class MemberDao {
 			}
 		} catch (SQLException err) {
 			System.out.println("getMemberList() error : " + err);
+			err.printStackTrace();
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
@@ -55,6 +58,11 @@ public class MemberDao {
 		return memberList;
 	}
 	
+	/**
+	 * 
+	 * @param memDto
+	 */
+	
 	public void insertMember(Member memDto) {
 		String id = memDto.getId();
 		String pw = memDto.getPw();
@@ -62,10 +70,11 @@ public class MemberDao {
 		String gender = memDto.getGender();
 		String nick = memDto.getNick();
 		String pic_url = memDto.getPic_url();
+		String tel = memDto.getTel();
 		
 		try {
-			String sql = "INSERT INTO member(id, pw, birth, gender, nick, pic_url)"
-				+ " values (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO member(id, pw, birth, gender, nick, pic_url, tel)"
+				+ " values (?, ?, ?, ?, ?, ?, ?)";
 			con = pool.getConnection();
 			pstmt = con.prepareStatement(sql);
 		
@@ -76,12 +85,15 @@ public class MemberDao {
 			pstmt.setString(cnt++, gender);
 			pstmt.setString(cnt++, nick);
 			pstmt.setString(cnt++, pic_url);
+			pstmt.setString(cnt++, tel);
 		
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
 			System.out.println("Insert 하다 프로세스 Exception 발생" + err);
+			err.printStackTrace();
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
@@ -97,8 +109,10 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
 			System.out.println("DELETE 하다 프로세스 Exception 발생" + err);
+			err.printStackTrace();
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
@@ -133,12 +147,48 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		} catch (SQLException err) {
 			System.out.println("update 하다 프로세스 Exception 발생" + err);
+			err.printStackTrace();
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
 		}
+	}
+	/* 중복된 아이디(이메일)가 있는지 확인하는 메소드 */
+	public boolean isUniqueEmail(String email) {
+		boolean isUnique = true;
+		try {
+			String sql = "SELECT * FROM member WHERE id = ?";
+			
+			con = pool.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			
+			int count = 0;
+			/* 만약 하나라도 SELECT된다면 중복이 있는것이므로 false를 리턴 */
+			while(rs.next()) {
+				count++;
+				break;
+			}
+			
+			if(count != 0) {
+				isUnique = false;
+			}
+		} catch (SQLException err) {
+			System.out.println("isDuplicatedEmail 하다 프로세스 Exception 발생" + err);
+			err.printStackTrace();
+		} catch (Exception err) {
+			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
+		} finally {
+			/* 접속 종료 */
+			closeConnection();	
+		}
+		
+		return isUnique;
 	}
 	
 	private void closeConnection() {
@@ -148,6 +198,7 @@ public class MemberDao {
 			if(rs != null) rs.close();
 		} catch (SQLException err) {
 			System.out.println("Connection Close Error" + err);
+			err.printStackTrace();
 		}
 	}
 }
