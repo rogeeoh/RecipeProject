@@ -18,13 +18,18 @@ public class MyPageController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String cmd = req.getParameter("cmd");
 		
-		/*만약 cmd가 들어오지 않는다면 이건 Main페이지로 이동*/
-		if(cmd == null) {
-			cmd = "main";
+		/* 만약 로그인되지 않은 상태에서 들어온다면 로그인 페이지로 이동 */
+		String id = (String)req.getSession().getAttribute("id");
+		if(id == null) {
+			resp.sendRedirect("login?cmd=login");
+			return;
 		}
 		
-		String url = null;
+		/*만약 cmd가 들어오지 않는다면 이건 Main페이지로 이동*/
+		if(cmd == null)
+			cmd = "main";
 		
+		String url = null;
 		switch(cmd) {
 			case "main":
 				url = "/WEB-INF/mypage/mypage_main.jsp";

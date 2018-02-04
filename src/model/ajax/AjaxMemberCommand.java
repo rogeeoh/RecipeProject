@@ -37,7 +37,8 @@ public class AjaxMemberCommand implements Command{
 		Member member = new Member();
 		
 		int mem_no = -1;
-		if(req.getParameter("mem_no") != null)
+		/* mem_no의 parseInt에서 exception의 예외처리 */
+		if(req.getParameter("mem_no") != null && !req.getParameter("mem_no").equals(""))
 			mem_no = Integer.parseInt((String)req.getParameter("mem_no"));
 		String id = (String)req.getParameter("id");
 		String pw = (String)req.getParameter("pw");
@@ -65,42 +66,31 @@ public class AjaxMemberCommand implements Command{
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+		/* admin 체크 부분 */
+		if(!req.getSession().getAttribute("id").equals("admin"))
+			return null;
+		
+		/* 전달하는 데이터가 json임을 알려준다. */
+		resp.setContentType("json");
+		
+		/* 넘어온 parameter를 통해 MemberDto를 만들기 위해서 req, resp를 전송해준다. */
 		if(command != null) {
 			Member memDto = makeMemberDto(req, resp);
 			
 			switch(command) {
 				case "insert":
-					insertMember(memDto);
+					memDao.insertMember(memDto);
 					break;
 				case "delete":
-					deleteMember(memDto);
+					memDao.deleteMember(memDto);
 					break;
 				case "update":
-					updateMember(memDto);
+					memDao.updateMember(memDto);
 					break;
 			}
 		}
 		
-		String json = new Gson().toJson(getMemberList());
+		String json = new Gson().toJson(memDao.getMemberList());
 		return json;
 	}
-	
-	/* dao로 빼야함 */
-	private ArrayList<Member> getMemberList(){
-		ArrayList<Member> memberList = memDao.getMemberList();
-		return memberList;
-	}
-	
-	private void insertMember(Member memDto) {
-		memDao.insertMember(memDto);
-	}
-	
-	private void deleteMember(Member memDto) {
-		memDao.deleteMember(memDto);
-	} // end delete()
-	
-	private void updateMember(Member memDto) {
-		memDao.updateMember(memDto);
-	} // end update()
-	
 }

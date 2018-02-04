@@ -27,7 +27,7 @@ public class RecipeDeleteCommand implements Command{
 
 		/* 만약 적합한 아이디가 아니라면 */
 		if(req.getSession().getAttribute("id") == null)
-			return "/WEB-INF/login/login.jsp";
+			return "login";
 		/* recpNo번에 해당하는 글을 삭제하는 작업 진행 */
 		
 		new RecipeBoardDao().deleteBoard(recpNo);

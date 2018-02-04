@@ -34,17 +34,17 @@ a.thumbnail:hover {
     <div class="container-fluid">
         <div class="row">	
 			<!-- 레시피 -->			
-            <div class="col-md-12">				
+            <div class="col-sm-12">				
 				<h3 class="recipeItems"><a href="#">레시피 </a></h3>						
 				<div class="carousel slide" data-ride="carousel" id="carousel-1">
 					<div class="carousel-inner" role="listbox">
 					
 						<!-- 첫 번째 케러셀 화면 -->
 						<div class="item active">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<a class="thumbnail" href="#"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -52,7 +52,7 @@ a.thumbnail:hover {
 									</div>
 								</a>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -60,7 +60,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -68,7 +68,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -76,7 +76,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -84,16 +84,16 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>
 						<!-- 두 번째 케러셀 화면 -->
 						<div class="item">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -101,7 +101,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -109,7 +109,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -117,7 +117,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -125,7 +125,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -133,16 +133,16 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>
 						<!-- 세 번째 케러셀 화면 -->
 						<div class="item">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -150,7 +150,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -158,7 +158,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -166,7 +166,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -174,7 +174,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><a href="#"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png"></a>
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -182,7 +182,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -206,17 +206,17 @@ a.thumbnail:hover {
             </div><!-- end 레시피 -->
 			
 			<!-- 강좌 -->			
-            <div class="col-md-12">				
+            <div class="col-sm-12">				
 				<h3 class="recipeItems"><a href="#">강좌 </a></h3>						
 				<div class="carousel slide" data-ride="carousel" id="carousel-2">
 					<div class="carousel-inner" role="listbox">
 					
 						<!-- 첫 번째 케러셀 화면 -->
 						<div class="item active">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -224,7 +224,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -232,7 +232,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -240,7 +240,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -248,7 +248,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -256,16 +256,16 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>
 						<!-- 두 번째 케러셀 화면 -->
 						<div class="item">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -273,7 +273,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -281,7 +281,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -289,7 +289,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -297,7 +297,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -305,16 +305,16 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>
 						<!-- 세 번째 케러셀 화면 -->
 						<div class="item">
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/0fca5de1b17ae318422e8e1b5830900b1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -322,7 +322,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1b0e820676844e8ca16ba1fd83c160c91_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -330,7 +330,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/1f1290750a53e195bb298fb675d3731f1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -338,7 +338,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/2cb510dc6f8852c06bf732ffde2db62b1_f.jpg">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -346,7 +346,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
+							<div class="col-sm-2">
 								<div class="thumbnail"><img src="./images/3a1f556a5c6dc4289b635a596c5e150c1_f.png">
 									<div class="caption">
 										<h3>Thumbnail label</h3>
@@ -354,7 +354,7 @@ a.thumbnail:hover {
 									</div>
 								</div>
 							</div>
-							<div class="col-md-1">
+							<div class="col-sm-1">
 								<div class="clearfix"></div>
 							</div>
 						</div>

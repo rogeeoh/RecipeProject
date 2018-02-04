@@ -82,7 +82,7 @@
 					</div>
 					<div class="form-group form-group-lg" id="imgWomanDiv">
 						<div class="col-md-6 col-md-offset-3 control">
-							<button class="btn btn-primary btn-lg btn-block" type="button" id="submit">회원가입</button>
+							<button class="btn btn-primary btn-lg btn-block" type="submit">회원가입</button>
 						</div>
 					</div>
 				</form>
@@ -98,20 +98,19 @@
 				$("#spanWoman").toggle();
 			});
 			
-			$("#submit").on("click", function(){
+			$("#email").on("change", function(){
 				$.ajax({
-					url: "ZZZ.jsp",
+					url: "ajax?cmd=chk_id",
 					/* request.getParameter("email")로 받아올 수 있음 */
 					data: $("#email")
 				}).done(function(data) {
 					data = data.trim();
 					if(data != "true"){
 						alert("아이디가 중복됩니다.");
+						$("#email").val("");
 						return;
 					}
 				});
-				
-				$("#registerForm").submit();
 			});
 		});
 	</script>

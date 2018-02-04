@@ -23,18 +23,17 @@ public class AjaxController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		/* 전달하는 데이터가 json임을 알려준다. */
-		resp.setContentType("json");
 		
+		/* 만약 board가 parameter값이 존재하는 경우에는 무조건 admin의 권한이 필요 */
 		String board = req.getParameter("board");
 		String command = req.getParameter("cmd");
 		
 		AjaxFactory ajaxFactory = AjaxFactory.newInstance();
 		Command ajaxCmd = ajaxFactory.createInstance(board, command);
-		String json = (String)ajaxCmd.processCommand(req, resp);
+		String resonseText = (String)ajaxCmd.processCommand(req, resp);
 		
 		PrintWriter out = resp.getWriter();
-		out.println(json);
+		out.println(resonseText);
 		out.close();
 	}
 }

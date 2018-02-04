@@ -23,7 +23,11 @@ public class ManageController extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		
 		/* 만약 관리자권한이 없는 사용자라면 그냥 메인페이지로 돌려보낸다. */
-		if(!req.getSession().getAttribute("id").equals("admin")) {
+		String id = (String)req.getSession().getAttribute("id");
+		/* NullPointerException 방지 처리 */
+		if(id == null) id = "";
+
+		if(!id.equals("admin")) {
 			resp.sendRedirect("index.jsp");
 			return;
 		}

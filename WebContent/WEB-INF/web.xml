@@ -95,12 +95,22 @@
 	
 	<!-- 게시글 업로드 컨트롤러 -->
 	<servlet>
-		<servlet-name>boardupload</servlet-name>
+		<servlet-name>board_upload</servlet-name>
 		<servlet-class>controller.BoardPostController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>boardupload</servlet-name>
-		<url-pattern>/boardupload</url-pattern>
+		<servlet-name>board_upload</servlet-name>
+		<url-pattern>/board_upload</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 게시글 삭제 컨트롤러 -->
+	<servlet>
+		<servlet-name>board_delete</servlet-name>
+		<servlet-class>controller.BoardDeleteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>board_delete</servlet-name>
+		<url-pattern>/board_delete</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 관리자 컨트롤러 -->
