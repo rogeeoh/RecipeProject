@@ -105,6 +105,7 @@
 					data: $("#email")
 				}).done(function(data) {
 					data = data.trim();
+					console.log('data : ' + data);
 					if(data != "true"){
 						alert("아이디가 중복됩니다.");
 						$("#email").val("");

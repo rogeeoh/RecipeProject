@@ -105,7 +105,8 @@
 	                <input type="password" class="form-control" placeholder="Password" name="password" required>
 	                <button class="btn btn-lg btn-primary btn-block" type="submit">
 	                    Sign in</button>
-	                <a href="login?cmd=find_id_page" class="pull-right need-help">forgot? </a><span class="clearfix"></span>
+	                <a href="login?cmd=find_id_page" class="pull-right need-help">forgot ID? </a><span class="clearfix"></span>
+	                <a href="login?cmd=find_pw_page" class="pull-right need-help">forgot Password? </a><span class="clearfix"></span>
                 </form>
             </div>
             <a href="login?cmd=create_account_page" class="text-center new-account">Create an account </a>

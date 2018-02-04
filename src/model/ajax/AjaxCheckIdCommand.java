@@ -23,6 +23,8 @@ public class AjaxCheckIdCommand implements Command {
 			ret = "true";
 		else
 			ret = "false";
+		
+		System.out.println("ret : " + ret);
 		return ret;
 	}
 

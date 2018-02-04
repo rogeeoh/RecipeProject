@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Command;
+import model.dao.MemberDao;
 
 public class LoginTryCommand implements Command{
 
@@ -19,12 +20,9 @@ public class LoginTryCommand implements Command{
 		String pw = req.getParameter("password");
 		String url = null;
 		/* DB로부터 비밀번호를 확인하는 코드 작성 */
-		if(id.equals("admin") && pw.equals("1111")) {
-			session.setAttribute("id", id);
-			System.out.println("로그인 성공!");
-			url = "index.jsp";
-		}
-		else if(id.equals("user") && pw.equals("1111")) {
+		boolean loginSuccess = new MemberDao().loginTry(id, pw);
+		
+		if(loginSuccess) {
 			session.setAttribute("id", id);
 			System.out.println("로그인 성공!");
 			url = "index.jsp";

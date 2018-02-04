@@ -23,16 +23,16 @@ public class ShowOffController extends HttpServlet {
 		String cmd = req.getParameter("cmd");
 		
 		/*만약 cmd가 들어오지 않는다면 이건 Main페이지로 이동*/
-		if(cmd == null) {
+		if(cmd != null) {
 			cmd = cmd.toLowerCase();
 		}
-		Integer postNo = null;
+		Integer showoffNo = null;
 		String no = req.getParameter("no");
-		if(no != null)
-			postNo = Integer.parseInt(no);
-		
+		if(no != null) {
+			showoffNo = Integer.parseInt(no);
+		}
 		ShowOffFactory showoffFactory = ShowOffFactory.newInstance();
-		Command iCmd = showoffFactory.createInstance(cmd, postNo);
+		Command iCmd = showoffFactory.createInstance(cmd, showoffNo);
 		String url = (String)iCmd.processCommand(req, resp);
 		RequestDispatcher view = req.getRequestDispatcher(url);
 		view.forward(req, resp);

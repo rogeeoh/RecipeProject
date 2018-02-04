@@ -11,13 +11,13 @@ public class ShowOffFactory {
 		return instance;
 	}
 	
-	public Command createInstance(String cmd, Integer postNo) {
+	public Command createInstance(String cmd, Integer showoffNo) {
 		if(cmd == null) {
-			if(postNo == null) {
+			if(showoffNo == null) {
 				return new ShowOffMainCommand();
 			}
-			return null;
+			return new ShowOffMainCommand();
 		}
-		return null;
+		return new ShowOffMainCommand();
 	}
 }
