@@ -37,7 +37,8 @@
          <form action="board_upload?board=recipe&no=${recipe.recp_no}" method="post" enctype="multipart/form-data">
             <div style="text-align: center">
                <img id="image_section" src="${recipe.url}"
-                  style="max-width: 100%; max-height: 200px" /> 
+                  style="max-width: 100%; max-height: 200px" />
+               <input type="hidden" name="original_image" value="${recipe.url}"/>
                <input type="file" id="imgInput" name="image"/>
             </div>
             
@@ -96,11 +97,11 @@
                       
                      </textarea>
                <script>
-                  CKEDITOR.replace('editor', {
-                     'filebrowserUploadUrl' : 'upload.jsp?'
-                           + 'realUrl=/Recipe_Project/upload_img/'
-                           + '&realDir=upload_img'
-                  });
+               CKEDITOR.replace('editor', {
+					'filebrowserUploadUrl' : 'imageupload?'
+							+ 'realUrl=/recipe_project/images/recipe/'
+							+ '&realDir=images/recipe/'
+				});
                </script>
             </div>
 

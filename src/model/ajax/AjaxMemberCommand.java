@@ -66,6 +66,8 @@ public class AjaxMemberCommand implements Command{
 			throws ServletException, IOException {
 
 		/* admin 체크 부분 */
+		if(req.getSession().getAttribute("id") == null)
+			return null;
 		if(!req.getSession().getAttribute("id").equals("admin"))
 			return null;
 		

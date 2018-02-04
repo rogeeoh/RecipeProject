@@ -232,18 +232,19 @@ public class RecipeBoardDao {
 			pstmt.setString(4, ingre);
 			pstmt.setString(5, editor);
 			pstmt.setInt(6, recp_no);
-			
+			System.out.println("1");
 			pstmt.executeUpdate();
-			
+			System.out.println("2");
 			
 			sql = "DELETE FROM ingre WHERE recp_no = ?";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, recp_no);
-			pstmt.executeQuery();
-			
+			pstmt.executeUpdate();
+			System.out.println("3");
 			/* ingre update 처리 */
 			String[] ingres = ingre.split(",");
+			System.out.println("ingre : " + ingre);
 			
 			sql = "INSERT INTO ingre VALUE(?,?,?)";
 			for(int i = 0; i < ingres.length; ++i) {
@@ -257,8 +258,10 @@ public class RecipeBoardDao {
 			
 		} catch (SQLException err) {
 			System.out.println("update 하다 프로세스 Exception 발생" + err);
+			err.printStackTrace();
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	

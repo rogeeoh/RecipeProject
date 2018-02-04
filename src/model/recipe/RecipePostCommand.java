@@ -43,22 +43,35 @@ public class RecipePostCommand implements Command{
 		String editor = multi.getParameter("editor"); 
 		
 		Enumeration enumer = multi.getFileNames();
-		String picUrl = prj + dir + multi.getFilesystemName((String)enumer.nextElement());
+		String picture = multi.getFilesystemName((String)enumer.nextElement());
+		String picUrl = prj + dir + picture;
 		
 		String ingres = "";
 		for(int i = 0; i < ingre.length; ++i) {
+//			System.out.println("ingre : " + ingre[i]);
+//			System.out.println("ingreAmount : " + ingreAmount[i]);
 			if(ingre[i].equals("") || ingreAmount[i].equals(""))
 				continue;
 			ingres += ingre[i] + ":" + ingreAmount[i] + ",";
 		}
 
-		ingres = ingres.substring(0, ingres.length() - 2);
+		ingres = ingres.substring(0, ingres.length() - 1);
+//		System.out.println("recipepostcommand ingres : " + ingres);
+		
 		
 		RecipeBoard recipeDto = new RecipeBoard();
 		/* dto 만들어서 보내줌 */
 		if(recpNo != null)
 			recipeDto.setRecp_no(Integer.parseInt(recpNo));
-		recipeDto.setUrl(picUrl);
+		System.out.println("picture : " + picture);
+		if(picture == null) {
+			System.out.println("multi.getParameter(\"original_image\") : " + multi.getParameter("original_image"));
+			recipeDto.setUrl(multi.getParameter("original_image"));
+		}
+		else {
+			System.out.println("picUrl : " + picUrl);
+			recipeDto.setUrl(picUrl);
+		}
 		recipeDto.setRecp_name(title);
 		recipeDto.setRecp_intro(intro);
 		recipeDto.setIngre(ingres);
