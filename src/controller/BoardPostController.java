@@ -35,7 +35,6 @@ public class BoardPostController extends HttpServlet{
 		Command interfaceCmd = factory.createInstance(board, no);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 
-		RequestDispatcher view = req.getRequestDispatcher(url);
-		view.forward(req, resp);
+		resp.sendRedirect(url);
 	}
 }

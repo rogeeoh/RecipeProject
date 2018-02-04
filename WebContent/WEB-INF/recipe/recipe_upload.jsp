@@ -101,7 +101,7 @@
 					<label> 내용 상세 </label><br>
 					<p class="help-block">상세한 조리법을 적어주세요</p>
 					<textarea name="editor" id="editor" row
-						justify-content-centers="10" cols="80" name="editor">
+						justify-content-centers="10" cols="80">
           			    	레시피를 적어주세요!
         			 	</textarea>
 					<script>

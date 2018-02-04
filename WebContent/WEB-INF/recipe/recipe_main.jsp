@@ -70,7 +70,7 @@ p {
 					<a href="/recipe_project/recipe?no=${board.recp_no}"><img src="${board.url}"></a>
 					<div class="caption">
 						<h3>
-							<a href="/recipe_project/recipe?cmd=${board.recp_no }">${board.recp_name}</a>
+							<a href="/recipe_project/recipe?no=${board.recp_no }">${board.recp_name}</a>
 						</h3>
 						<p>${board.recp_intro}</p>
 					</div>

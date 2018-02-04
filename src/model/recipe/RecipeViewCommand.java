@@ -1,17 +1,13 @@
 package model.recipe;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import model.Command;
+import model.dao.IngreDao;
 import model.dao.RecipeBoardDao;
 
 public class RecipeViewCommand implements Command{
@@ -25,9 +21,10 @@ public class RecipeViewCommand implements Command{
 			throws ServletException, IOException {
 
 		RecipeBoardDao recpBoard = new RecipeBoardDao();
-		recpBoard.getBoard(recpNo);
+		IngreDao ingre = new IngreDao();
+		req.setAttribute("board", recpBoard.getBoard(recpNo));
+		req.setAttribute("ingreList", ingre.getIngreList(recpNo));
 		String url = "/WEB-INF/recipe/recipe_view.jsp";
-		
 		return url;
 	}
 }

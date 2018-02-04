@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbcp.DBConnectionMgr;
+import model.dto.Ingre;
 import model.dto.Member;
 import model.dto.RecipeBoard;
 
@@ -75,36 +76,25 @@ public class RecipeBoardDao {
 	
 	public RecipeBoard getBoard(int recp_no){
 		/* DBConnection을 가져오기 종료 */
-		RecipeBoard newDto = null;
+		RecipeBoard recpBoard = new RecipeBoard();
 		try {
-			String sql = "SELECT * FROM recipe WHERE recp_no = ?";
+			String sql = "SELECT * FROM recipe WHERE recp_no=?";
 			con = pool.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, recp_no);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				//int recp_no = rs.getInt("recp_no");
-				String recp_name = rs.getString("recp_name");
-				String nick = rs.getString("nick");
-				String date = rs.getString("date");
-				int cnt = rs.getInt("cnt");
-				int likes = rs.getInt("likes");
-				String recp_intro = rs.getString("recp_intro");
-				String url = rs.getString("url");
-				String ingre = rs.getString("ingre");
-				String editor = rs.getString("editor");
-				
-				newDto.setRecp_no(recp_no);
-				newDto.setRecp_name(recp_name);
-				newDto.setNick(nick);
-				newDto.setDate(date);
-				newDto.setCnt(cnt);
-				newDto.setLikes(likes);
-				newDto.setRecp_intro(recp_intro);
-				newDto.setUrl(url);
-				newDto.setIngre(ingre);
-				newDto.setEditor(editor);
+				recpBoard.setRecp_no(rs.getInt("recp_no"));
+				recpBoard.setRecp_name(rs.getString("recp_name"));
+				recpBoard.setNick(rs.getString("nick"));
+				recpBoard.setDate(rs.getString("date"));
+				recpBoard.setCnt(rs.getInt("cnt"));
+				recpBoard.setLikes(rs.getInt("likes"));
+				recpBoard.setRecp_intro(rs.getString("recp_intro"));
+				recpBoard.setUrl(rs.getString("url"));
+				recpBoard.setIngre(rs.getString("ingre"));
+				recpBoard.setEditor(rs.getString("editor"));
 			}
 		} catch (SQLException err) {
 			System.out.println("getBoardList() error : " + err);
@@ -115,7 +105,7 @@ public class RecipeBoardDao {
 			closeConnection();	
 		}
 		
-		return newDto;
+		return recpBoard;
 	}
 	
 	public void insertBoard(RecipeBoard recipeDto) {
