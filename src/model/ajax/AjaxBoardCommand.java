@@ -85,8 +85,14 @@ public class AjaxBoardCommand implements Command{
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		makeConnection();
+		/* admin 체크 부분 */
+		if(!req.getSession().getAttribute("id").equals("admin"))
+			return null;
 		
+		/* 전달하는 데이터가 json임을 알려준다. */
+		resp.setContentType("json");
+		
+		makeConnection();
 		if(command != null) {
 			switch(command) {
 				case "insert":

@@ -261,7 +261,7 @@ a {
                     name: "gender",
                     title: "성별",
                     type: "select",
-                    items: [{Name:""}, {Name:"남"}, {Name:"여"}],
+                    items: [{Name:""}, {Name:"남자"}, {Name:"여자"}],
                 	valueField :"Name",
                 	textField:"Name",
                 },

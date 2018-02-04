@@ -1,7 +1,8 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Command;
-import model.ajax.AjaxFactory;
-import model.recipe.RecipeFactory;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class AjaxController extends HttpServlet{
+import model.Command;
+import model.FactoryDeleteBoard;
+import model.FactoryPostBoard;
+
+
+public class BoardDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
@@ -24,16 +29,13 @@ public class AjaxController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		/* 만약 board가 parameter값이 존재하는 경우에는 무조건 admin의 권한이 필요 */
 		String board = req.getParameter("board");
-		String command = req.getParameter("cmd");
+		String no = req.getParameter("no");
 		
-		AjaxFactory ajaxFactory = AjaxFactory.newInstance();
-		Command ajaxCmd = ajaxFactory.createInstance(board, command);
-		String resonseText = (String)ajaxCmd.processCommand(req, resp);
-		
-		PrintWriter out = resp.getWriter();
-		out.println(resonseText);
-		out.close();
+		FactoryDeleteBoard factory = FactoryDeleteBoard.newInstance();
+		Command interfaceCmd = factory.createInstance(board, no);
+		String url = (String)interfaceCmd.processCommand(req, resp);
+
+		resp.sendRedirect(url);
 	}
 }
