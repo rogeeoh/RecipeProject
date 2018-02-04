@@ -1,5 +1,7 @@
 <%@include file="../inc/header.jsp"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,11 +53,6 @@ h3 {
 	height: 26px;
 	overflow: hidden;
 }
-
-h3:focus, h3:hover {
-	height: 100%;
-	overflow: visible;
-}
 /* p태그의 내용이 2줄을 넘어가면 짜름 */
 p {
 	height: 43px;
@@ -64,153 +61,43 @@ p {
 </style>
 </head>
 <body id="body">
+<div id="content">
 	<div class="container">
 		<div class="row">
+			<c:forEach items="${boardList}" var="board">
 			<div class="col-md-4">
 				<div class="thumbnail">
-					<a href="#"><img src="./images/bby1.jpg"></a>
+					<a href="/recipe_project/recipe?no=${board.recp_no}"><img src="${board.url}"></a>
 					<div class="caption">
 						<h3>
-							<a href="#">여기는 제목여기는 제목여기는 제목여기는 제목여기는 제목여기는 제목여기는 제목여기는
-								제목여기는 제목여기는 제목여기는 제목여기는 제목</a>
+							<a href="/recipe_project/recipe?cmd=${board.recp_no }">${board.recp_name}</a>
 						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~
-							블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
+						<p>${board.recp_intro}</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby2.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby3.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby4.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby5.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby6.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby1.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby2.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby3.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby4.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby5.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="#"><img src="./images/bby6.jpg"></a>
-					<div class="caption">
-						<h3>
-							<a href="#">여기는 제목</a>
-						</h3>
-						<p>여기는 내용을 설명하는 곳이랑게~ 블라블라블라블라블라블라블라블라</p>
-					</div>
-				</div>
-			</div>
-		</div>
+			</c:forEach>
 		<div id="paginationDiv"></div>
+		</div>
 	</div>
-	<div id="content">Dynamic Content goes here</div>
-	<div id="page-selection">Pagination goes here</div>
+</div>
+	<div id="page-selection">
+		<nav class="text-center">
+			<a class="btn btn-default pull-left">처음으로</a>
+			<ul class="pagination">
+				<li><a href="#" aria-label="Previous"><span
+						aria-hidden="true">«</span></a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#" aria-label="Next"><span
+						aria-hidden="true">»</span></a></li>
+			</ul>
+			<a class="btn btn-default pull-right" href="recipe?cmd=write">글쓰기</a>
+		</nav>
+	</div>
 	<script>
 		// 스크립트 참조 -> http://botmonster.com/jquery-bootpag/#.WmckQ65l-70
 		// init bootpag

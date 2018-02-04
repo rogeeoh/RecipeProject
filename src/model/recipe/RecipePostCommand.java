@@ -25,10 +25,10 @@ public class RecipePostCommand implements Command{
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+		String prj = "/recipe_project";
 		String dir = "/images/recipe/";
 		String path = req.getServletContext().getRealPath(dir);
-		// System.out.println("servletContextRealPath : " + path);
+		//System.out.println("servletContextRealPath : " + path);
 		
 		int maxSize = 1024*1024*50;
 		MultipartRequest multi = 
@@ -43,15 +43,16 @@ public class RecipePostCommand implements Command{
 		String editor = multi.getParameter("editor1"); 
 		
 		Enumeration enumer = multi.getFileNames();
-		String picUrl = dir + multi.getFilesystemName((String)enumer.nextElement());
+		String picUrl = prj + dir + multi.getFilesystemName((String)enumer.nextElement());
 		
 		String ingres = "";
 		for(int i = 0; i < ingre.length; ++i) {
-			ingres += ingre[i] + ":" + ingreAmount[i];
-			if(i == ingre.length - 1)
-				break;
-			ingres += ",";
+			if(ingre[i].equals("") || ingreAmount[i].equals(""))
+				continue;
+			ingres += ingre[i] + ":" + ingreAmount[i] + ",";
 		}
+
+		ingres = ingres.substring(0, ingres.length() - 2);
 		
 		RecipeBoard recipeDto = new RecipeBoard();
 		/* dto 만들어서 보내줌 */
@@ -69,7 +70,7 @@ public class RecipePostCommand implements Command{
 		String url = null;
 		if(recpNo == null) {
 			recpDao.insertBoard(recipeDto);
-			url = "/WEB-INF/recipe/recipe_main.jsp";
+			url = "/recipe";
 		}
 		else{
 			recpDao.updateBoard(recipeDto);

@@ -20,7 +20,6 @@ public class RecipeFactory {
 				// 메인으로 이동하는 command 생성
 				return new RecipeMainCommand();
 			}
-		
 			/* recipe?no=글번호 를 통해 글을 보고 싶은 거라면 */
 			return new RecipeViewCommand(recpNo);
 		}

@@ -28,7 +28,7 @@ public class RecipeBoardDao {
 		/* DBConnection을 가져오기 종료 */
 		ArrayList<RecipeBoard> boardList = new ArrayList<>();
 		try {
-			String sql = "SELECT * FROM recipe";
+			String sql = "SELECT * FROM recipe order by recp_no desc";
 			con = pool.getConnection();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -64,6 +64,7 @@ public class RecipeBoardDao {
 			System.out.println("getBoardList() error : " + err);
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
@@ -157,7 +158,6 @@ public class RecipeBoardDao {
 			
 			/* ingre update 처리 */
 			String[] ingres = ingre.split(",");
-			
 			sql = "INSERT INTO ingre VALUE(?,?,?)";
 			for(int i = 0; i < ingres.length; ++i) {
 				pstmt = con.prepareStatement(sql);
@@ -172,6 +172,7 @@ public class RecipeBoardDao {
 			System.out.println("Insert 하다 프로세스 Exception 발생" + err);
 		} catch (Exception err) {
 			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
 		} finally {
 			/* 접속 종료 */
 			closeConnection();	
