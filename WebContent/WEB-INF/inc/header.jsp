@@ -279,8 +279,14 @@ a.submenu{
 					href="http://clashhacks.in/">Link 4</a></li>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/">Link 5</a></li>
+				<% if(session.getAttribute("id") == null){ %>
 				<li class="upper-links"><a class="links"
-					href="http://clashhacks.in/">Link 6</a></li>
+					href="login?cmd=login">로그인</a></li>
+				<% }else{ %>
+				<li class="upper-links"><a class="links"
+					href="login?cmd=logoff">로그오프</a></li>
+				<% } %>
+				
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/"> <svg class="" width="16px"
 							height="12px" style="overflow: visible;">
