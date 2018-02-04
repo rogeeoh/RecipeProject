@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<form class="form-horizontal" id="registerForm" method="post"
-					action="#">
+					action="login?cmd=create_account">
 					<div class="form-group form-group-lg">
 						<div class="col-md-6 col-md-offset-3 control">
 							<label class="sr-only" for="email">이메일</label> <input
@@ -72,7 +72,7 @@
 								id="spanMan">남자</span>
 						</div>
 						<div class="col-md-2" id="switchDiv">
-							<input type="checkbox" id="switch" /><label for="switch">토글</label>
+							<input type="checkbox" id="switch" name="gender"/><label for="switch">토글</label>
 						</div>
 						<div class="col-md-2">
 							<img class="imgWoman" src="./images/woman.png"

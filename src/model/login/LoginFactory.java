@@ -28,6 +28,18 @@ public class LoginFactory {
 				// 로그오프
 				iCmd = new LogoffCommand();
 				break;
+			case "find_id":
+				iCmd = new FindIdCommand();
+				break;
+			case "find_id_page":
+				iCmd = new FindIdPageCommand();
+				break;
+			case "create_account":
+				iCmd = new CreateAccountCommand();
+				break;
+			case "create_account_page":
+				iCmd = new CreateAccountPageCommand();
+				break;
 		}
 	
 		return iCmd;

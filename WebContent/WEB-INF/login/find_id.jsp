@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -16,11 +18,14 @@
 		<div class="row" style="margin-top:100px;">
 		<div class="col-md-2 hidden-xs"></div>
 		<div class="col-md-8 col-xs-12">
+		<% if(request.getAttribute("fail") != null){ %>
+			일치하는 닉네임이 없습니다. 다시 입력해주세요.
+		<% } %>
 			<h2>아이디 찾기</h2>
-			<form action="" method="post">
-				<input type="text" class="form-control" id="nick" placeholder="닉네임">
-				<input type="text" class="form-control" style="margin-top: 15px;" id="birthday" placeholder="생일">
-				<button type="button" class="btn btn-primary btn-block btn-lg" style="margin-top: 15px">아이디 찾기</button>
+			<form action="login?cmd=find_id" method="post">
+				<input type="text" class="form-control" name="nick" placeholder="닉네임">
+				<input type="text" class="form-control" style="margin-top: 15px;" name="birthday" placeholder="생일">
+				<button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 15px">아이디 찾기</button>
 			</form>
 			<p class="help-block"> 가입시 등록한 생일과 닉네임을 입력하세요 </p>
 		</div>
