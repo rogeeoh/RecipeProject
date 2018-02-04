@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>축하합니다 당신의 아이디는 <span style="color:red;">${requestScope.email}</span>로 회원가입 되었습니다.</h1>
+<h1>축하합니다 당신의 아이디는 <span style="color:red;">${member.id}</span>로 회원가입 되었습니다.</h1>
 <a href="index.jsp">메인으로 돌아가기</a>
 </body>
 </html>
