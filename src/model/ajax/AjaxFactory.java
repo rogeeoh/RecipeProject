@@ -16,19 +16,15 @@ public class AjaxFactory {
 		/* 만약 parameter가 null이면 기본 페이지로 이동하게 설정 */
 		
 		Command iCmd = null;
+		if(command == null) command = "";
 		
 		switch(command) {
-		case "chk_id":
-			iCmd = new AjaxCheckIdCommand();
-			break;
+			case "chk_id":
+				iCmd = new AjaxCheckIdCommand();
+				break;
 		}
 		
-		if(iCmd != null)
-			return iCmd;
-		
-		if(board == null) {
-			board = "member";
-		}
+		if(board == null) board = "member";
 		
 		switch(board) {
 			/* 이하 케이스는 admin권한 체크 반드시 필요함.*/

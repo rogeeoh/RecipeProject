@@ -43,8 +43,7 @@ public class AjaxMemberCommand implements Command{
 		String id = (String)req.getParameter("id");
 		String pw = (String)req.getParameter("pw");
 		String birth = (String)req.getParameter("birth");
-		if(birth.equals(""))
-			birth = null;
+		if(birth == null) birth = "";
 		String gender = (String)req.getParameter("gender");
 		String nick = (String)req.getParameter("nick");
 		String pic_url = (String)req.getParameter("pic_url");

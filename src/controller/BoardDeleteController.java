@@ -36,6 +36,8 @@ public class BoardDeleteController extends HttpServlet{
 		Command interfaceCmd = factory.createInstance(board, no);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 
+		
+		System.out.println("url : " + url);
 		resp.sendRedirect(url);
 	}
 }
