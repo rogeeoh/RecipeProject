@@ -34,20 +34,20 @@
    <div class="container">
       <div class="col-xs-2"></div>
       <div class="col-xs-8">
-         <form action="boardupload?board=recipe&no=${recipe.recp_no }" method="post" enctype="multipart/form-data">
+         <form action="board_upload?board=recipe&no=${recipe.recp_no}" method="post" enctype="multipart/form-data">
             <div style="text-align: center">
-               <img id="image_section" src=".${recipe.url }"
+               <img id="image_section" src="${recipe.url}"
                   style="max-width: 100%; max-height: 200px" /> 
                <input type="file" id="imgInput" name="image"/>
             </div>
             
             <div class="form-group" style="margin-top: 20px">
                <label> 레시피 제목 </label><br> <input type="text"
-                  class="form-control" name="title" value="${recipe.recp_name }">
+                  class="form-control" name="title" value="${recipe.recp_name}">
             </div>
             <div class="form-group">
                <label> 요리 간단 소개 </label><br> <input type="text"
-                  class="form-control" name="intro" value="${recipe.recp_intro }">
+                  class="form-control" name="intro" value="${recipe.recp_intro}">
             </div>
             <br> <br>
             <div id="inputRecipeDiv">

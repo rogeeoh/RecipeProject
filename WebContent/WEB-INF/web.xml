@@ -73,7 +73,7 @@
 		<url-pattern>/recipe</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 리뷰게시판 컨트롤러 -->
+	<!-- 뽐내기게시판 컨트롤러 -->
 	<servlet>
 		<servlet-name>showoff</servlet-name>
 		<servlet-class>controller.ShowOffController</servlet-class>

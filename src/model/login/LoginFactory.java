@@ -14,7 +14,9 @@ public class LoginFactory {
 	
 	public Command createInstance(String command) {
 		Command iCmd = null;
-		
+		if(command == null) {
+			command = "login";
+		}
 		switch(command) {
 			case "login":
 				// 로그인페이지로 이동

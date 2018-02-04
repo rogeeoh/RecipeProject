@@ -31,7 +31,7 @@
 		<div class="col-xs-2"></div>
 		<div class="col-xs-8">
 			<!-- 업로드 하는 form 시작 -->
-			<form action="boardupload?board=recipe" method="post" enctype="multipart/form-data">
+			<form action="board_upload?board=recipe" method="post" enctype="multipart/form-data">
 				<div style="text-align: center">
 					<img id="image_section" src="./images/alterRecipeImg.gif"
 						style="max-width: 100%; max-height: 200px" />

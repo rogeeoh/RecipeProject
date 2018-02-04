@@ -51,11 +51,6 @@ h3 {
 	height: 26px;
 	overflow: hidden;
 }
-
-h3:focus, h3:hover {
-	height: 100%;
-	overflow: visible;
-}
 /* p태그의 내용이 2줄을 넘어가면 짜름 */
 p {
 	height: 43px;

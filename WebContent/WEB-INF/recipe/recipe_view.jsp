@@ -126,7 +126,7 @@ span#title {
 					</div>
 				</div>
 				<div style="text-align: right; margin-top: 25px">
-					<a class="btn btn-default" href="recipe?cmd=delete&no=${board.recp_no}">삭제하기</a>
+					<a class="btn btn-default" href="board_delete?board=recipe&no=${board.recp_no}">삭제하기</a>
 					&nbsp;
 					<a class="btn btn-default" href="recipe?cmd=modify&no=${board.recp_no}">수정하기</a>
 					&nbsp;
