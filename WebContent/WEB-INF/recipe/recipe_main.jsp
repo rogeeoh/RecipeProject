@@ -1,7 +1,6 @@
 <%@include file="../inc/header.jsp"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,12 +58,14 @@ p {
 	overflow: hidden;
 }
 </style>
+<script src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
 </head>
 <body id="body">
-<div id="content">
-	<div class="container">
-		<div class="row">
-			<c:forEach items="${boardList}" var="board">
+
+<div class="container">
+	<div class="row">
+		<div id="content">
+		<c:forEach items="${boardList}" var="board">
 			<div class="col-md-4">
 				<div class="thumbnail">
 					<a href="/recipe_project/recipe?no=${board.recp_no}"><img src="${board.url}"></a>
@@ -76,35 +77,38 @@ p {
 					</div>
 				</div>
 			</div>
-			</c:forEach>
-		<div id="paginationDiv"></div>
+		</c:forEach>
+		</div>
+	<div id="paginationDiv">
+		<div id="page-selection">
+			<nav class="text-center">
+				<a class="btn btn-default pull-left">처음으로</a>
+				<ul class="pagination">
+					<li><a href="#" aria-label="Previous"><span
+							aria-hidden="true">«</span></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#" aria-label="Next"><span
+							aria-hidden="true">»</span></a></li>
+				</ul>
+				<a class="btn btn-default pull-right" href="recipe?cmd=write">글쓰기</a>
+			</nav>
 		</div>
 	</div>
-</div>
-	<div id="page-selection">
-		<nav class="text-center">
-			<a class="btn btn-default pull-left">처음으로</a>
-			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"><span
-						aria-hidden="true">«</span></a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"><span
-						aria-hidden="true">»</span></a></li>
-			</ul>
-			<a class="btn btn-default pull-right" href="recipe?cmd=write">글쓰기</a>
-		</nav>
 	</div>
+</div>
+
+	
 	<script>
 		// 스크립트 참조 -> http://botmonster.com/jquery-bootpag/#.WmckQ65l-70
 		// init bootpag
 		$('#paginationDiv').bootpag({
 			total : 50,
-			page : 1,
-			maxVisible : 5,
+			page : 3,
+			maxVisible : 6,
 			leaps : true,
 			firstLastUse : true,
 			first : '시작 ',
@@ -119,7 +123,7 @@ p {
 
 		}).on("page", function(event, num) {
 			/* 여기부터 수정해서 페이지 내용을 추가하면 된다.*/
-			$("#content").html($(".container").html());
+			$("#content").html("page" + num);
 		});
 	</script>
 </body>

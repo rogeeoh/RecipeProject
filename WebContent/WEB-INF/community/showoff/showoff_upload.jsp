@@ -1,4 +1,4 @@
-<%@include file="../inc/header.jsp"%>
+<%@include file="../../inc/header.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,39 +29,22 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal col-xs-8 col-xs-offset-2">
+			<form class="form-horizontal col-xs-8 col-xs-offset-2" action="/recipe_project/community/showoff?cmd=post" method="post" enctype="multipart/form-data">
 				<div class="form-group" style="text-align: center">
 					<img id="image_section" src="/recipe_project/images/alterRecipeImg.gif"
 						style="max-width: 100%; max-height: 200px" /> <input type="file"
-						id="imgInput" />
+						id="imgInput" name="photo_url"/>
 				</div>
 				<div class="form-group" style="margin-top: 20px">
 					<label for="title"> 뽐내기 제목 </label>
-					<input type="text" class="form-control" id="title">
+					<input type="text" class="form-control" id="title" name="title">
 				</div>
 				<div class="form-group">
 					<label for="summary"> 요리 간단 소개 </label>
-					<input type="text" class="form-control" id="summary">
+					<input type="text" class="form-control" id="summary" name="intro">
 				</div>
-				<br> <br>
-				<div class="form-group">
-					<label> 내용 상세 </label><br>
-					<p class="help-block">뽐내기를 적어주세요</p>
-					<textarea name="editor1" id="editor1" row
-						justify-content-centers="10" cols="80">
-          			    	자랑할 내용을 적어주세요!
-        			 	</textarea>
-					<script>
-						CKEDITOR.replace('editor1', {
-							'filebrowserUploadUrl' : '/imageupload?'
-									+ 'realUrl=/recipe_project/images/'
-									+ '&realDir=images'
-						});
-					</script>
-				</div>
-
 				<div style="text-align: center; margin-top: 20px">
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-block">등록하기</button>
 				</div>
 			</form>
 		</div>

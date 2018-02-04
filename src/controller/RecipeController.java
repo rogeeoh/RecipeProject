@@ -40,7 +40,6 @@ public class RecipeController extends HttpServlet{
 		
 		RequestDispatcher view = null;
 		RecipeFactory recpFactory = RecipeFactory.newInstance();
-
 		Command interfaceCmd = recpFactory.createInstance(cmd, recpNo);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 				

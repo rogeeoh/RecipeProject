@@ -32,7 +32,7 @@ public class RecipeDeleteCommand implements Command{
 		
 		new RecipeBoardDao().deleteBoard(recpNo);
 		
-		String url = "/WEB-INF/recipe/recipe_main.jsp";
+		String url = "recipe";
 		return url;
 	}
 }

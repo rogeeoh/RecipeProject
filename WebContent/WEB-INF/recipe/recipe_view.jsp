@@ -126,11 +126,11 @@ span#title {
 					</div>
 				</div>
 				<div style="text-align: right; margin-top: 25px">
-					<button class="btn btn-default">좋아요</button>
+					<a class="btn btn-default" href="recipe?cmd=delete&no=${board.recp_no}">삭제하기</a>
 					&nbsp;
-					<button class="btn btn-default">수정</button>
+					<a class="btn btn-default" href="recipe?cmd=modify&no=${board.recp_no}">수정하기</a>
 					&nbsp;
-					<button class="btn btn-default">목록</button>
+					<a class="btn btn-default" href="recipe">목록으로</a>
 					&nbsp;
 				</div>
 				<div>

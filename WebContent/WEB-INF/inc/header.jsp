@@ -1,9 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<script type="text/javascript" src="/recipe_project/js/jquery-3.2.1.min.js"></script>
-<link href="/recipe_project/css/bootstrap.min.css" rel="stylesheet">
-<link href="/recipe_project/js/bootstrap.min.js" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 	function openNav() {
 		document.getElementById("mySidenav").style.width = "70%";
@@ -241,13 +239,16 @@
 	font-size: 20px;
 	border-bottom: 4px solid #4caf50;
 }
-
+a {
+	color: #4caf50;
+	text-decoration: none;
+}
 a.submenu{
 	text-decoration:none;
 }
 
 /* 5가지 카테고리 nav bar */
-.nav-pills>li>a, .nav-pills>li.active>a {
+.category{
     background-color: #fff;
     border-bottom : 4px solid #4caf50;
 	color: #4caf50;
@@ -255,7 +256,7 @@ a.submenu{
 	font-weight: bold;
 	text-decoration: none;
 }
-.nav-pills>li>a:focus, .nav-pills>li>a:hover, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+.category:focus, .category:hover, .category.active:focus, .category.active:hover{
 	background-color: #eeeeee;
 	color: #4caf50;
 	font-size: 20px;
@@ -278,13 +279,8 @@ a.submenu{
 					href="http://clashhacks.in/">Link 4</a></li>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/">Link 5</a></li>
-			<%if(session.getAttribute("id") == null){%>
 				<li class="upper-links"><a class="links"
-				href="/recipe_project/login?cmd=login">로그인</a></li>						
-			<%}else {%>
-				<li class="upper-links"><a class="links"
-				href="/recipe_project/login?cmd=logoff">로그오프</a></li>
-			<%} %>
+					href="http://clashhacks.in/">Link 6</a></li>
 				<li class="upper-links"><a class="links"
 					href="http://clashhacks.in/"> <svg class="" width="16px"
 							height="12px" style="overflow: visible;">
@@ -320,8 +316,8 @@ a.submenu{
 					</span>
 				</h2>
 				<h1 style="margin: 0px;">
-					<a href="/recipe_project"><span class="largenav">레시피
-					</span></a>
+					<span class="largenav">레시피
+					</span>
 				</h1>
 			</div>
 			<div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
@@ -350,11 +346,11 @@ a.submenu{
 </div>
 <div class="row" style="margin-bottom: 10px">
 	<ul class="nav nav-pills nav-justified">
-		<li class="active"><a href="/recipe_project/recipe">레시피</a></li>
-		<li><a href="/recipe_project/calendar">달력</a></li>
-		<li><a href="/recipe_project/community/free">커뮤니티</a></li>
-		<li><a href="/recipe_project/lecture">강좌</a></li>
-		<li><a href="/recipe_project/mypage">마이페이지</a></li>
+		<li class="category"><a href="/recipe_project/recipe">레시피</a></li>
+		<li class="category"><a href="/recipe_project/calendar">달력</a></li>
+		<li class="category"><a href="/recipe_project/community/showoff">커뮤니티</a></li>
+		<li class="category"><a href="/recipe_project/lecture">강좌</a></li>
+		<li class="category"><a href="/recipe_project/mypage">마이페이지</a></li>
 	</ul>
 </div>
 <div id="mySidenav" class="sidenav">
@@ -365,12 +361,7 @@ a.submenu{
 	</div>
 	<a href="/recipe_project/recipe">레시피</a>
 	<a href="/recipe_project/calendar">달력</a>
-	<a href="/recipe_project/community/free">커뮤니티</a>
+	<a href="/recipe_project/community/showoff">커뮤니티</a>
 	<a href="/recipe_project/lecture">강좌</a>
 	<a href="/recipe_project/mypage">마이페이지</a>
 </div>
-
-
-
-
-

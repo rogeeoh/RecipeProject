@@ -1,4 +1,3 @@
-<%@include file="../inc/header.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>

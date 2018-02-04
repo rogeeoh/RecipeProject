@@ -38,6 +38,7 @@ a.thumbnail:hover {
 				<h3 class="recipeItems"><a href="#">레시피 </a></h3>						
 				<div class="carousel slide" data-ride="carousel" id="carousel-1">
 					<div class="carousel-inner" role="listbox">
+					
 						<!-- 첫 번째 케러셀 화면 -->
 						<div class="item active">
 							<div class="col-md-1">

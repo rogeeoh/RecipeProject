@@ -1,4 +1,3 @@
-<%@include file="../inc/header.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -53,9 +52,9 @@
         			 	</textarea>
 					<script>
 						CKEDITOR.replace('editor1', {
-							'filebrowserUploadUrl' : 'upload.jsp?'
-									+ 'realUrl=/recipe_project/upload_img/'
-									+ '&realDir=upload_img'
+							'filebrowserUploadUrl' : '/imageupload?'
+									+ 'realUrl=/recipe_project/images/'
+									+ '&realDir=images'
 						});
 					</script>
 				</div>

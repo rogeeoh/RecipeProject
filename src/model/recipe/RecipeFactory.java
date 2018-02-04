@@ -35,7 +35,7 @@ public class RecipeFactory {
 				// 글 수정
 				iCmd = new RecipeModifyCommand(recpNo);
 				break;
-			case "del":
+			case "delete":
 				// 글 삭제
 				iCmd = new RecipeDeleteCommand(recpNo);
 				break;
