@@ -37,7 +37,7 @@ import java.util.Vector;
 
 public class DBConnectionMgr {// vector와 AllayList를 차이 vector는 동시접근을 막음.
 	private Vector connections = new Vector(10);// POOL 10개 /(Collection)VECTOR를 쓴 이유 : 다 쓰면 자동으로 추가시키도록
-	private String _driver = "com.mysql.jdbc.Driver", _url = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useSSL=false", _user = "root",
+	private String _driver = "com.mysql.jdbc.Driver", _url = "jdbc:mysql://70.12.113.131:3306/project?autoReconnect=true&useSSL=false", _user = "root",
 			_password = "1111";
 	private boolean _traceOn = false;
 	private boolean initialized = false;

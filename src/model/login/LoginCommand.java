@@ -16,13 +16,11 @@ public class LoginCommand implements Command{
 			throws ServletException, IOException {
 		
 		String url = null;
-		if(req.getSession().getAttribute("id") != null) {
+		if(req.getSession().getAttribute("id") != null) 
 			/* 만약 로그인된 상태에서 접속을 시도하면 차단 */
 			url = "index.jsp";
-		}
-		else {
+		else
 			url = "WEB-INF/login/login.jsp";
-		}
 		
 		return url;
 	}

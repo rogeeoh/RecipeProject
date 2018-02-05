@@ -150,7 +150,7 @@ a {
 					   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
 					   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
 					   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
-					   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
+					   		/*&& (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)*/
 			        });
 			        d.resolve(result);
 				});
@@ -171,7 +171,7 @@ a {
 				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
 				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
 				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
-				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
+				   		/*&& (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)*/
 			        });
 					return result;
 			        //d.resolve(result);
@@ -193,7 +193,7 @@ a {
 				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
 				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
 				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
-				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
+				   		/*&& (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)*/
 			        });
 					return result;
 			        //d.resolve(result);
@@ -215,7 +215,7 @@ a {
 				   		 && (!filter.birth || item.birth.indexOf(filter.birth) > -1)
 				   		 && (!filter.gender || item.gender.indexOf(filter.gender) > -1)
 				   		 && (!filter.nick || item.nick.indexOf(filter.nick) > -1)
-				   		 && (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)
+				   		 /*&& (!filter.pic_url || item.pic_url.indexOf(filter.pic_url) > -1)*/
 			        });
 					return result;
 			        //d.resolve(result);
@@ -273,13 +273,13 @@ a {
                     type: "text",
                     validate: "required",
                 },
-                {
+                /*{
                     align: "center",
                     width: "auto",
                     name: "pic_url",
                     title: "사진위치",
                     type: "text",
-                },
+                },*/
                 {
                     align: "center",
                     width: "auto",

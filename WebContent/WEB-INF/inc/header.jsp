@@ -322,7 +322,7 @@ a.submenu{
 					</span>
 				</h2>
 				<h1 style="margin: 0px;">
-					<span class="largenav">레시피
+					<span class="largenav"><a class="links" href="/recipe_project/index.jsp">레시피</a>
 					</span>
 				</h1>
 			</div>
@@ -362,7 +362,7 @@ a.submenu{
 <div id="mySidenav" class="sidenav">
 	<div class="container"
 		style="background-color: #5cbf60; padding-top: 10px">
-		<span class="sidenav-heading">Home</span> <a href="javascript:void(0)"
+		<span class="sidenav-heading"><a href="/recipe_project/index.jsp">Home</a></span> <a href="javascript:void(0)"
 			class="closebtn" onclick="closeNav()">×</a>
 	</div>
 	<a href="/recipe_project/recipe">레시피</a>

@@ -21,6 +21,8 @@ public class AjaxFactory {
 		switch(command) {
 			case "chk_id":
 				return new AjaxCheckIdCommand();
+			case "chk_session":
+				return new AjaxCheckSessionCommand();
 		}
 		
 		if(board == null) board = "member";
