@@ -9,22 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import model.Command;
 import model.dao.MemberDao;
 
-public class AjaxCheckIdCommand implements Command {
+public class AjaxCheckSessionCommand implements Command {
 
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String email = req.getParameter("email");
-		boolean isUnique = new MemberDao().isUniqueEmail(email);
+		String id = (String)req.getSession().getAttribute("id");
 		
-		String ret = null;
-		
-		if(isUnique)
-			ret = "true";
-		else
+		String ret;
+		if(id == null)
 			ret = "false";
+		else
+			ret = "true";
 		
-		System.out.println("ret : " + ret);
 		return ret;
 	}
 

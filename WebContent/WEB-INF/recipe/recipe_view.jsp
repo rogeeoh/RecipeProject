@@ -126,7 +126,7 @@ span#title {
 					</div>
 				</div>
 				<div style="text-align: right; margin-top: 25px">
-					<a class="btn btn-default" href="board_delete?board=recipe&no=${board.recp_no}">삭제하기</a>
+					<input type="button" class="btn btn-default" value="삭제하기" id="delete"/>
 					&nbsp;
 					<a class="btn btn-default" href="recipe?cmd=modify&no=${board.recp_no}">수정하기</a>
 					&nbsp;
@@ -194,5 +194,23 @@ span#title {
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
+<script>
+$("#delete").on("click", function(){
+	$.ajax({
+		url: "ajax?cmd=chk_session"
+		/*data: $("#email")*/
+	}).done(function(session) {
+		session = session.trim();
+		console.log('session : ' + session);
+		if(session != "true"){
+			alert("로그인후 이용해주세요");
+			/*$("#email").val("");*/
+			return;
+		}
+		if(confirm("정말 삭제하시겠습니까?") == true)
+			location.href = "board_delete?board=recipe&no=${board.recp_no}";
+	});
+});
+</script>
 </body>
 </html>

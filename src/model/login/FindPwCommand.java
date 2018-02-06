@@ -11,7 +11,7 @@ import model.Command;
 import model.dao.MemberDao;
 import model.dto.Member;
 
-public class FindIdCommand implements Command{
+public class FindPwCommand implements Command{
 
 	@Override
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
@@ -23,22 +23,23 @@ public class FindIdCommand implements Command{
 			return "index.jsp";
 		}
 			
-		String nick = req.getParameter("nick");
+		String email = req.getParameter("email");
 		String birthday = req.getParameter("birthday");
 
+		
+		Member dto = new MemberDao().findPassword(email, birthday);
+
 		/* 만약 입력한 값이 일치하지 않는다면 원래의 페이지로 다시 돌려보낸다. */
-		Member dto = new MemberDao().findMember(nick, birthday);
 		if(dto == null) {
-			req.setAttribute("fail", "failedFindingId");
-			url = "WEB-INF/login/find_id.jsp";
+			req.setAttribute("fail", "failedFindingPw");
+			url = "WEB-INF/login/find_pw.jsp";
 			return url;
 		}
 		
-		/* DB에서 nick과 birth가 일치하는지 확인 */
 		/* 만약 일치한다면 */
-		String foundId = dto.getId();
-		req.setAttribute("foundId", foundId);
-		url = "WEB-INF/login/show_found_id.jsp";
+		String foundPw = dto.getPw();
+		req.setAttribute("foundPw", foundPw);
+		url = "WEB-INF/login/show_found_pw.jsp";
 		return url;
 	}
 }

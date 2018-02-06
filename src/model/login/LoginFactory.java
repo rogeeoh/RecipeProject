@@ -36,6 +36,12 @@ public class LoginFactory {
 			case "find_id_page":
 				iCmd = new FindIdPageCommand();
 				break;
+			case "find_pw":
+				iCmd = new FindPwCommand();
+				break;
+			case "find_pw_page":
+				iCmd = new FindPwPageCommand();
+				break;
 			case "create_account":
 				iCmd = new CreateAccountCommand();
 				break;

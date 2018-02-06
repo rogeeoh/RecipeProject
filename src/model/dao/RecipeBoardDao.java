@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbcp.DBConnectionMgr;
-import model.dto.Ingre;
-import model.dto.Member;
 import model.dto.RecipeBoard;
 
 public class RecipeBoardDao {
