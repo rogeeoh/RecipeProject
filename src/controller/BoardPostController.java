@@ -23,6 +23,13 @@ public class BoardPostController extends HttpServlet{
 		doPost(req, resp);
 	}
 	
+	/**
+	 * 
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
