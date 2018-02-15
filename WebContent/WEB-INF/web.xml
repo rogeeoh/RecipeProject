@@ -86,7 +86,7 @@
 	<!-- 이미지 업로드 컨트롤러 -->
 	<servlet>
 		<servlet-name>imageupload</servlet-name>
-		<servlet-class>controller.ImageUploadController</servlet-class>
+		<servlet-class>service.ImageUploadService</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>imageupload</servlet-name>

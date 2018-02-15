@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import model.Command;
-import model.FactoryPostBoard;
+import command.Command;
+import factory.FactoryPostBoard;
 
 
 public class BoardPostController extends HttpServlet{

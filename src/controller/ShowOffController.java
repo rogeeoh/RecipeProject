@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Command;
-import model.community.ShowOffFactory;
+import command.Command;
+import factory.ShowOffFactory;
 
 public class ShowOffController extends HttpServlet {
 	@Override

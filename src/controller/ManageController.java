@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Command;
-import model.manage.ManageFactory;
+import command.Command;
+import factory.ManageFactory;
 
 public class ManageController extends HttpServlet{
 	@Override

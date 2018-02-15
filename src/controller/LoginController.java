@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Command;
-import model.login.LoginFactory;
-import model.recipe.RecipeFactory;
+import command.Command;
+import factory.LoginFactory;
+import factory.RecipeFactory;
 
 public class LoginController extends HttpServlet {
 	@Override

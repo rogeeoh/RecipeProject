@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Command;
-import model.recipe.RecipeFactory;
+import command.Command;
+import factory.RecipeFactory;
 
 public class RecipeController extends HttpServlet{
 	@Override
