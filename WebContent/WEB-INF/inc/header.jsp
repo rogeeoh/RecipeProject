@@ -354,7 +354,7 @@ a.submenu{
 	<ul class="nav nav-pills nav-justified">
 		<li class="category"><a href="/recipe_project/recipe">레시피</a></li>
 		<li class="category"><a href="/recipe_project/calendar">달력</a></li>
-		<li class="category"><a href="/recipe_project/community/showoff">커뮤니티</a></li>
+		<li class="category"><a href="/recipe_project/community_showoff">커뮤니티</a></li>
 		<li class="category"><a href="/recipe_project/lecture">강좌</a></li>
 		<li class="category"><a href="/recipe_project/mypage">마이페이지</a></li>
 	</ul>
@@ -367,7 +367,7 @@ a.submenu{
 	</div>
 	<a href="/recipe_project/recipe">레시피</a>
 	<a href="/recipe_project/calendar">달력</a>
-	<a href="/recipe_project/community/showoff">커뮤니티</a>
+	<a href="/recipe_project/community_showoff">커뮤니티</a>
 	<a href="/recipe_project/lecture">강좌</a>
 	<a href="/recipe_project/mypage">마이페이지</a>
 </div>

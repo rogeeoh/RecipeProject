@@ -1,9 +1,6 @@
 package repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import dbcp.DBConnectionMgr;
@@ -33,17 +30,17 @@ public class ShowOffBoardDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				ShowOffBoard showoffDto = new ShowOffBoard();
-				showoffDto.setShowoff_no(rs.getInt("showoff_no"));
-				showoffDto.setMem_no(rs.getInt("mem_no"));
-				showoffDto.setTitle(rs.getString("title"));
-				showoffDto.setContent(rs.getString("content"));
-				showoffDto.setDate(rs.getString("date"));
-				showoffDto.setCnt(rs.getInt("cnt"));
-				showoffDto.setLikes(rs.getInt("likes"));
-				showoffDto.setIntro(rs.getString("intro"));
-				showoffDto.setPic_url(rs.getString("pic_url"));
-				showoffList.add(showoffDto);
+				ShowOffBoard showoff = new ShowOffBoard();
+				showoff.setShowoff_no(rs.getInt("showoff_no"));
+				showoff.setMem_no(rs.getInt("mem_no"));
+				showoff.setTitle(rs.getString("title"));
+				showoff.setContent(rs.getString("content"));
+				showoff.setDate(rs.getString("date"));
+				showoff.setCnt(rs.getInt("cnt"));
+				showoff.setLikes(rs.getInt("likes"));
+				showoff.setPic_url(rs.getString("pic_url"));
+				showoff.setEditor(rs.getString("editor"));
+				showoffList.add(showoff);
 			}
 		} catch (SQLException err) {
 			System.out.println("getShowOffList() error : " + err);
@@ -70,12 +67,12 @@ public class ShowOffBoardDao {
 				showoff.setShowoff_no(rs.getInt("showoff_no"));
 				showoff.setMem_no(rs.getInt("mem_no"));
 				showoff.setTitle(rs.getString("title"));
-				showoff.setIntro(rs.getString("intro"));
+				showoff.setContent(rs.getString("content"));
 				showoff.setDate(rs.getString("date"));
 				showoff.setCnt(rs.getInt("cnt"));
 				showoff.setLikes(rs.getInt("likes"));
-				showoff.setContent(rs.getString("content"));
 				showoff.setPic_url(rs.getString("pic_url"));
+				showoff.setEditor(rs.getString("editor"));
 			}
 		} catch (SQLException err) {
 			System.out.println("getShowOff() error : " + err);
@@ -87,5 +84,32 @@ public class ShowOffBoardDao {
 		
 		return showoff;
 	}// end getShowOff()
+	
+	// BoardPostController.java
+	public void setShowOff(ShowOffBoard showoff) {
+		try {
+			String sql = "INSERT INTO showoff(mem_no, title, content, date, cnt, likes, pic_url, editor)"
+					+ " values (?, ?, ?, now(), 0, 0, ?, ?)";
+			con = pool.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, showoff.getMem_no());
+			pstmt.setString(2, showoff.getTitle());
+			pstmt.setString(3, showoff.getContent());
+			pstmt.setString(4, showoff.getPic_url());
+			pstmt.setString(5, showoff.getEditor());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException err) {
+			System.out.println("Insert 하다 프로세스 Exception 발생" + err);
+		} catch (Exception err) {
+			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
+		} finally {
+			/* 접속 종료 */
+			pool.freeConnection(con, pstmt, rs);
+		}
+	}
 	
 }// end ShowOffBoardDao class

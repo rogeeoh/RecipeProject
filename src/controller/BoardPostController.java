@@ -1,17 +1,11 @@
 package controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import command.Command;
 import factory.FactoryPostBoard;
@@ -37,9 +31,13 @@ public class BoardPostController extends HttpServlet{
 		
 		String board = req.getParameter("board");
 		String no = req.getParameter("no");
+		Integer boardNo = null;
+		if(no != null) {
+			boardNo = Integer.parseInt(no);
+		}
 		
 		FactoryPostBoard factory = FactoryPostBoard.newInstance();
-		Command interfaceCmd = factory.createInstance(board, no);
+		Command interfaceCmd = factory.createInstance(board, boardNo);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 
 		resp.sendRedirect(url);

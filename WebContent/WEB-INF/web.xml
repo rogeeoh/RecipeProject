@@ -30,7 +30,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>freeBoard</servlet-name>
-		<url-pattern>/community/free</url-pattern>
+		<url-pattern>/community_free</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 강좌 컨트롤러 -->
@@ -80,7 +80,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>showoff</servlet-name>
-		<url-pattern>/community/showoff</url-pattern>
+		<url-pattern>/community_showoff</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 이미지 업로드 컨트롤러 -->

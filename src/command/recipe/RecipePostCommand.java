@@ -16,9 +16,9 @@ import repository.IngreDao;
 import repository.RecipeBoardDao;
 
 public class RecipePostCommand implements Command{
-	private String recpNo;
+	private Integer recpNo;
 	
-	public RecipePostCommand(String recpNo) {
+	public RecipePostCommand(Integer recpNo) {
 		this.recpNo = recpNo;
 	}
 	
@@ -62,7 +62,7 @@ public class RecipePostCommand implements Command{
 		RecipeBoard recipeDto = new RecipeBoard();
 		/* dto 만들어서 보내줌 */
 		if(recpNo != null)
-			recipeDto.setRecp_no(Integer.parseInt(recpNo));
+			recipeDto.setRecp_no(recpNo);
 		System.out.println("picture : " + picture);
 		if(picture == null) {
 			System.out.println("multi.getParameter(\"original_image\") : " + multi.getParameter("original_image"));

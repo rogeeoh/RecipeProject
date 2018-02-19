@@ -8,8 +8,8 @@ public class ShowOffBoard {
 	private String date;
 	private int cnt;
 	private int likes;
-	private String intro;
 	private String pic_url;
+	private String editor;
 	
 
 	public int getShowoff_no() {
@@ -54,11 +54,11 @@ public class ShowOffBoard {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	public String getIntro() {
-		return intro;
+	public String getEditor() {
+		return editor;
 	}
-	public void setIntro(String intro) {
-		this.intro = intro;
+	public void setEditor(String editor) {
+		this.editor = editor;
 	}
 	public String getPic_url() {
 		return pic_url;
