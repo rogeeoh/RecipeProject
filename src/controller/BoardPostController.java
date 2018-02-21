@@ -30,12 +30,15 @@ public class BoardPostController extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		
 		String board = req.getParameter("board");
+		if(board != null) {
+			board = board.toLowerCase();
+		}
 		String no = req.getParameter("no");
 		Integer boardNo = null;
 		if(no != null) {
 			boardNo = Integer.parseInt(no);
 		}
-		
+		System.out.println("게시글번호 : " + boardNo);
 		FactoryPostBoard factory = FactoryPostBoard.newInstance();
 		Command interfaceCmd = factory.createInstance(board, boardNo);
 		String url = (String)interfaceCmd.processCommand(req, resp);

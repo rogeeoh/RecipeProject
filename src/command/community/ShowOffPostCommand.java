@@ -18,7 +18,7 @@ import repository.ShowOffBoardDao;
 public class ShowOffPostCommand implements Command {
 	private Integer showoffNo;
 	
-	public ShowOffPostCommand(int showoffNo) {
+	public ShowOffPostCommand(Integer showoffNo) {
 		this.showoffNo = showoffNo;
 	}
 	
@@ -26,7 +26,7 @@ public class ShowOffPostCommand implements Command {
 	public Object processCommand(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String prj = "/recipe_project";
-		String dir = "/images/showoff/";
+		String dir = "/images/community/showoff/";
 		String path = req.getServletContext().getRealPath(dir);
 		//System.out.println("servletContextRealPath : " + path);
 		
@@ -40,7 +40,7 @@ public class ShowOffPostCommand implements Command {
 		
 		/* 받아온 데이터를 model에 세팅 */
 		ShowOffBoard showoff = new ShowOffBoard();
-		if(showoff != null) {
+		if(showoffNo != null) {
 			showoff.setShowoff_no(showoffNo);
 		}
 		if(picture == null) {
@@ -52,18 +52,16 @@ public class ShowOffPostCommand implements Command {
 		showoff.setContent(multi.getParameter("content"));
 		showoff.setEditor(multi.getParameter("editor"));
 		
+		ShowOffBoardDao showoffDao = new ShowOffBoardDao();
 		String url = null;		
 		if(showoffNo == null) {
-			new ShowOffBoardDao().setShowOff(showoff);
+			showoffDao.setShowOff(showoff);
 			url = "community_showoff";
 		}
 		else{
-			//showoffDao.setUpdate(showoff);
-			/* 해당 글로 이동하는 url을 잡아줄것 */
+			showoffDao.setUpdateShowOff(showoff);
 			url = "community_showoff?no="+showoffNo;
 		}
-		
-		// 수정 필요함; 내가 쓴 글로 이동하도록 경로를 잡아주어야 함
 		return url;
 		
 	}

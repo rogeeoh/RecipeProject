@@ -112,4 +112,28 @@ public class ShowOffBoardDao {
 		}
 	}
 	
+	public void setUpdateShowOff(ShowOffBoard showoff) {
+		try {
+			String sql = "UPDATE showoff SET pic_url=?, title=?, content=?, editor=? WHERE showoff_no=?";
+			con = pool.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, showoff.getPic_url());
+			pstmt.setString(2, showoff.getTitle());
+			pstmt.setString(3, showoff.getContent());
+			pstmt.setString(4, showoff.getEditor());
+			pstmt.setInt(5, showoff.getShowoff_no());
+			pstmt.executeUpdate();
+					
+		}catch (SQLException e) {
+			System.out.println("update 하다 프로세스 익셉션 발생 : " + e);
+			e.printStackTrace();
+		}catch (Exception e) {
+			System.out.println("setUpdateShowOff() 에러 : " + e);
+			e.printStackTrace();
+		}finally {
+			/* 접속 종료 */
+			pool.freeConnection(con, pstmt, rs);
+		}
+	}
+	
 }// end ShowOffBoardDao class

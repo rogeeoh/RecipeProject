@@ -1,11 +1,12 @@
+<%@include file="../../inc/header.jsp"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>뽐내기 게시판 등록페이지</title>
-<script src="./ckeditor/ckeditor.js"></script>
-<script src="./js/jquery.min.js"></script>
+<title>뽐내기 게시판 글쓰기</title>
+<script src="/recipe_project/ckeditor/ckeditor.js"></script>
+<script src="/recipe_project/js/jquery.min.js"></script>
 <script>
 	$(function() {
 		$("#imgInput").on('change', function() {
@@ -28,39 +29,36 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal col-xs-8 col-xs-offset-2">
+			<form class="form-horizontal col-xs-8 col-xs-offset-2" action="board_upload?board=showoff&no=${showoff.showoff_no}" method="post" enctype="multipart/form-data">
 				<div class="form-group" style="text-align: center">
-					<img id="image_section" src="./images/alterRecipeImg.gif"
+					<img id="image_section" src="${showoff.pic_url}"
 						style="max-width: 100%; max-height: 200px" /> <input type="file"
-						id="imgInput" />
+						id="imgInput" name="pic_url"/>
+					<input type="hidden" name="original_image" value="${showoff.pic_url}"/>
 				</div>
 				<div class="form-group" style="margin-top: 20px">
 					<label for="title"> 뽐내기 제목 </label>
-					<input type="text" class="form-control" id="title">
+					<input type="text" class="form-control" id="title" name="title" value="${showoff.title}">
 				</div>
 				<div class="form-group">
-					<label for="summary"> 요리 간단 소개 </label>
-					<input type="text" class="form-control" id="summary">
+					<label for="content"> 뽐내기 내용 </label>
+					<input type="text" class="form-control" id="content" name="content" value="${showoff.content}">
 				</div>
-				<br> <br>
 				<div class="form-group">
-					<label> 내용 상세 </label><br>
-					<p class="help-block">뽐내기를 적어주세요</p>
-					<textarea name="editor1" id="editor1" row
-						justify-content-centers="10" cols="80">
-          			    	자랑할 내용을 적어주세요!
-        			 	</textarea>
+					<label> 뽐내기 상세내용 </label><br>
+					<textarea name="editor" id="editor" placeholder="사진을 추가해서 작성하실 수 있습니다."  rowjustify-content-centers="10" cols="80">
+						${showoff.editor}
+					</textarea>
 					<script>
-						CKEDITOR.replace('editor1', {
-							'filebrowserUploadUrl' : 'upload.jsp?'
-									+ 'realUrl=/Recipe_Project/upload_img/'
-									+ '&realDir=upload_img'
+						CKEDITOR.replace('editor', {
+							'filebrowserUploadUrl' : 'imageupload?'
+									+ 'realUrl=/recipe_project/images/showoff/'
+									+ '&realDir=images/showoff/'
 						});
 					</script>
 				</div>
-
 				<div style="text-align: center; margin-top: 20px">
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-block">등록하기</button>
 				</div>
 			</form>
 		</div>

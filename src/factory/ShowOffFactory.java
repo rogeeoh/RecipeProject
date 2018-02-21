@@ -2,10 +2,9 @@ package factory;
 
 import command.Command;
 import command.community.ShowOffMainCommand;
+import command.community.ShowOffModifyCommand;
 import command.community.ShowOffViewCommand;
 import command.community.ShowOffWriteCommand;
-import command.recipe.RecipeModifyCommand;
-import command.recipe.RecipeWriteCommand;
 
 public class ShowOffFactory {
 	private ShowOffFactory() {}
@@ -33,7 +32,7 @@ public class ShowOffFactory {
 				break;
 			case "modify":
 				// 글 수정
-				// iCmd = new ShowOffModifyCommand(showoffNo);
+				iCmd = new ShowOffModifyCommand(showoffNo);
 				break;
 		}
 	
