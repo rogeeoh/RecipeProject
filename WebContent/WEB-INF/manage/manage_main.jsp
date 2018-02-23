@@ -142,7 +142,7 @@ a {
                 var d = $.Deferred();
               	$.ajax({
 				    type: "POST",
-				    url: "ajax?board=member",
+				    url: "ajaxmanage?board=member",
 				}).done(function(result){
 					result = $.grep(result, function(item) {
 						return (!filter.id || item.id.indexOf(filter.id) > -1)
@@ -162,7 +162,7 @@ a {
             	//var d = $.Deferred();
             	$.ajax({
                     type: "POST",
-                    url: "ajax?board=member&cmd=insert",
+                    url: "ajaxmanage?board=member&cmd=insert",
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
@@ -184,7 +184,7 @@ a {
             	//var d = $.Deferred();
             	$.ajax({
                     type: "POST",
-                    url: "ajax?board=member&cmd=update",
+                    url: "ajaxmanage?board=member&cmd=update",
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {
@@ -206,7 +206,7 @@ a {
             	//var d = $.Deferred();
             	$.ajax({
                     type: "POST",
-                    url: "ajax?board=member&cmd=delete",
+                    url: "ajaxmanage?board=member&cmd=delete",
                     data: item
                 }).done(function(result){
 					result = $.grep(result, function(item) {

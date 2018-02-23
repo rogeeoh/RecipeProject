@@ -1,14 +1,15 @@
 package factory;
 
 import command.Command;
+import command.recipe.RecipeDeleteCommand;
 import command.recipe.RecipePostCommand;
 
 // Factory Pattern
-public class FactoryPostBoard {
-	private FactoryPostBoard() {}
-	public static FactoryPostBoard instance = new FactoryPostBoard();
+public class DeleteBoardFactory {
+	private DeleteBoardFactory() {}
+	public static DeleteBoardFactory instance = new DeleteBoardFactory();
 	
-	public static FactoryPostBoard newInstance() {
+	public static DeleteBoardFactory newInstance() {
 		return instance;
 	}
 	
@@ -18,7 +19,7 @@ public class FactoryPostBoard {
 		switch(command) {
 			/* 레시피 게시판에 업로드 하는 경우 */
 			case "recipe":
-				iCmd = new RecipePostCommand(no);
+				iCmd = new RecipeDeleteCommand(Integer.parseInt(no));
 				break;
 			case "free":
 				//iCmd = new ConfirmCommand();

@@ -32,6 +32,7 @@
 		<div class="col-xs-8">
 			<!-- 업로드 하는 form 시작 -->
 			<form action="board_upload?board=recipe" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="mem_no" value="${sessionScope.mem_no}"/>
 				<div style="text-align: center">
 					<img id="image_section" src="./images/alterRecipeImg.gif"
 						style="max-width: 100%; max-height: 200px" />

@@ -35,6 +35,7 @@
       <div class="col-xs-2"></div>
       <div class="col-xs-8">
          <form action="board_upload?board=recipe&no=${recipe.recp_no}" method="post" enctype="multipart/form-data">
+         	<input type="hidden" name="mem_no" value="${sessionScope.mem_no}"/>
             <div style="text-align: center">
                <img id="image_section" src="${recipe.url}"
                   style="max-width: 100%; max-height: 200px" />

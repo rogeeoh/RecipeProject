@@ -14,7 +14,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import command.Command;
-import factory.FactoryPostBoard;
+import factory.PostBoardFactory;
 
 
 public class BoardPostController extends HttpServlet{
@@ -38,7 +38,7 @@ public class BoardPostController extends HttpServlet{
 		String board = req.getParameter("board");
 		String no = req.getParameter("no");
 		
-		FactoryPostBoard factory = FactoryPostBoard.newInstance();
+		PostBoardFactory factory = PostBoardFactory.newInstance();
 		Command interfaceCmd = factory.createInstance(board, no);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 

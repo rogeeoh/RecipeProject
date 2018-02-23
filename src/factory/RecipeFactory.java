@@ -17,12 +17,12 @@ public class RecipeFactory {
 		return instance;
 	}
 	
-	public Command createInstance(String command, Integer recpNo) {
+	public Command createInstance(String command, Integer recpNo, Integer pageNo) {
 		if(command == null) {
 		// 만약 localhost:8080/recipe 경로로 접근한 것이라면 메인페이지로 이동한다
 			if(recpNo == null) {
 				// 메인으로 이동하는 command 생성
-				return new RecipeMainCommand();
+				return new RecipeMainCommand(pageNo);
 			}
 			/* recipe?no=글번호 를 통해 글을 보고 싶은 거라면 */
 			return new RecipeViewCommand(recpNo);

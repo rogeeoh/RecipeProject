@@ -128,7 +128,7 @@ span#title {
 				<div style="text-align: right; margin-top: 25px">
 					<input type="button" class="btn btn-default" value="삭제하기" id="delete"/>
 					&nbsp;
-					<a class="btn btn-default" href="recipe?cmd=modify&no=${board.recp_no}">수정하기</a>
+					<input type="button" class="btn btn-default" value="수정하기" id="modify"/>
 					&nbsp;
 					<a class="btn btn-default" href="recipe">목록으로</a>
 					&nbsp;
@@ -197,20 +197,46 @@ span#title {
 <script>
 $("#delete").on("click", function(){
 	$.ajax({
-		url: "ajax?cmd=chk_session"
-		/*data: $("#email")*/
+		url: 'ajax?cmd=chk_session&recp_no=${board.recp_no}'
 	}).done(function(session) {
 		session = session.trim();
-		console.log('session : ' + session);
-		if(session != "true"){
+		
+		if(session == 'null'){
 			alert("로그인후 이용해주세요");
-			/*$("#email").val("");*/
 			return;
 		}
+		
+		else if(session == 'false'){
+			alert('글의 작성자만 삭제할 수 있습니다');
+			return;
+		}
+		
 		if(confirm("정말 삭제하시겠습니까?") == true)
 			location.href = "board_delete?board=recipe&no=${board.recp_no}";
 	});
 });
+
+$("#modify").on("click", function(){
+	$.ajax({
+		url: 'ajax?cmd=chk_session&recp_no=${board.recp_no}'
+	}).done(function(session) {
+		session = session.trim();
+		
+		if(session == 'null'){
+			alert("로그인후 이용해주세요");
+			return;
+		}
+		
+		else if(session == 'false'){
+			alert('글의 작성자만 수정할 수 있습니다');
+			return;
+		}
+		
+		location.href = "recipe?cmd=modify&no=${board.recp_no}";
+	});
+});
+
+
 </script>
 </body>
 </html>

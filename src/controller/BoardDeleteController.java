@@ -1,22 +1,14 @@
 package controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import command.Command;
-import factory.FactoryDeleteBoard;
-import factory.FactoryPostBoard;
-
+import factory.DeleteBoardFactory;
 
 public class BoardDeleteController extends HttpServlet{
 	@Override
@@ -32,7 +24,7 @@ public class BoardDeleteController extends HttpServlet{
 		String board = req.getParameter("board");
 		String no = req.getParameter("no");
 		
-		FactoryDeleteBoard factory = FactoryDeleteBoard.newInstance();
+		DeleteBoardFactory factory = DeleteBoardFactory.newInstance();
 		Command interfaceCmd = factory.createInstance(board, no);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 

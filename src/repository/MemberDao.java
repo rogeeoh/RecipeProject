@@ -215,6 +215,44 @@ public class MemberDao {
 		return dto;
 	}
 	
+	/**
+	 * 
+	 * @param mem_no 회원의 번호
+	 * @return 만약 해당하는 회원이 없다면 null을 리턴, 해당하는 회원이 있다면 해당 Member클래스 dto를 리턴
+	 */
+	public Member findMemberById(String id) {
+		Member dto = null;
+		try {
+			String sql = "SELECT * FROM member WHERE id = ?";
+			con = pool.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new Member();
+				dto.setMem_no(rs.getInt("mem_no"));
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setGender(rs.getString("gender"));
+				dto.setNick(rs.getString("nick"));
+				dto.setPic_url(rs.getString("pic_url"));
+			}
+		} catch (SQLException err) {
+			System.out.println("getMemberList() error : " + err);
+			err.printStackTrace();
+		} catch (Exception err) {
+			System.out.println("pool.getConnection() fail" + err);
+			err.printStackTrace();
+		} finally {
+			/* 접속 종료 */
+			closeConnection();	
+		}
+		
+		return dto;
+	}
+	
 	public ArrayList<Member> getMemberList(){
 		/* DBConnection을 가져오기 종료 */
 		ArrayList<Member> memberList = new ArrayList<>();

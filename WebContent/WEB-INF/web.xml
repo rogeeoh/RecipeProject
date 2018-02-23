@@ -123,7 +123,8 @@
 		<url-pattern>/manage</url-pattern>
 	</servlet-mapping>
 	
-	<!-- ajax 테스 -->
+	<!-- ajaxmanage 테스트 -->
+	
 	<servlet>
 		<servlet-name>ajax</servlet-name>
 		<servlet-class>controller.AjaxController</servlet-class>
@@ -131,5 +132,24 @@
 	<servlet-mapping>
 		<servlet-name>ajax</servlet-name>
 		<url-pattern>/ajax</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ajaxmanage</servlet-name>
+		<servlet-class>controller.AjaxManageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ajaxmanage</servlet-name>
+		<url-pattern>/ajaxmanage</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Search Controller 테스트 -->
+	<servlet>
+		<servlet-name>search</servlet-name>
+		<servlet-class>controller.SearchController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>search</servlet-name>
+		<url-pattern>/search</url-pattern>
 	</servlet-mapping>
 </web-app>

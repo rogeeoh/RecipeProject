@@ -1,6 +1,6 @@
 <%@include file="../inc/header.jsp"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,50 +58,53 @@ p {
 	overflow: hidden;
 }
 </style>
-<script src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+<script
+	src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
 </head>
 <body id="body">
 
-<div class="container">
-	<div class="row">
-		<div id="content">
-		<c:forEach items="${boardList}" var="board">
-			<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="/recipe_project/recipe?no=${board.recp_no}"><img src="${board.url}"></a>
-					<div class="caption">
-						<h3>
-							<a href="/recipe_project/recipe?no=${board.recp_no }">${board.recp_name}</a>
-						</h3>
-						<p>${board.recp_intro}</p>
+	<div class="container">
+		<div class="row">
+			<div id="content">
+				<c:forEach items="${boardList}" var="board">
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<a href="/recipe_project/recipe?no=${board.recp_no}"><img
+								src="${board.url}"></a>
+							<div class="caption">
+								<h3>
+									<a href="/recipe_project/recipe?no=${board.recp_no }">${board.recp_name}</a>
+								</h3>
+								<p>${board.recp_intro}</p>
+							</div>
+						</div>
 					</div>
+				</c:forEach>
+			</div>
+		</div>
+		<div id="paginationDiv">
+				<div id="page-selection">
+					<nav class="text-center">
+						<a class="btn btn-default pull-left">처음으로</a>
+						<ul class="pagination">
+							<li><a href="#" aria-label="Previous"><span
+									aria-hidden="true">«</span></a></li>
+									<%System.out.println("startPage : " + request.getAttribute("startPage"));
+									System.out.println("endPage : " + request.getAttribute("endPage"));
+									%>
+							<c:forEach var="page" begin="${startPage}" end="${endPage}">
+								<li><a href="/recipe_project/recipe?page=${page}">${page}</a></li>
+							</c:forEach>
+							<li><a href="#" aria-label="Next"><span
+									aria-hidden="true">»</span></a></li>
+						</ul>
+						<a class="btn btn-default pull-right" href="recipe?cmd=write">글쓰기</a>
+					</nav>
 				</div>
 			</div>
-		</c:forEach>
-		</div>
-	<div id="paginationDiv">
-		<div id="page-selection">
-			<nav class="text-center">
-				<a class="btn btn-default pull-left">처음으로</a>
-				<ul class="pagination">
-					<li><a href="#" aria-label="Previous"><span
-							aria-hidden="true">«</span></a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"><span
-							aria-hidden="true">»</span></a></li>
-				</ul>
-				<a class="btn btn-default pull-right" href="recipe?cmd=write">글쓰기</a>
-			</nav>
-		</div>
 	</div>
-	</div>
-</div>
 
-	
+
 	<script>
 		// 스크립트 참조 -> http://botmonster.com/jquery-bootpag/#.WmckQ65l-70
 		// init bootpag

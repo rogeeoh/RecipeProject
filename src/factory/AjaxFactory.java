@@ -1,10 +1,9 @@
 package factory;
 
 import command.Command;
-import command.ajax.AjaxBoardCommand;
-import command.ajax.AjaxCheckIdCommand;
-import command.ajax.AjaxCheckSessionCommand;
-import command.ajax.AjaxMemberCommand;
+import command.manage.ajax.AjaxMemberCommand;
+import service.CheckIdDuplicatedAjax;
+import service.CheckIdMatchesAjax;
 
 // Factory Pattern
 public class AjaxFactory {
@@ -24,22 +23,9 @@ public class AjaxFactory {
 		if(command == null) command = "";
 		switch(command) {
 			case "chk_id":
-				return new AjaxCheckIdCommand();
+				return new CheckIdDuplicatedAjax();
 			case "chk_session":
-				return new AjaxCheckSessionCommand();
-		}
-		
-		if(board == null) board = "member";
-		
-		switch(board) {
-			/* 이하 케이스는 admin권한 체크 반드시 필요함.*/
-			case "member":
-				return new AjaxMemberCommand(command);
-			case "board":
-				return new AjaxBoardCommand(command);
-			case "lecture":
-				//iCmd = new AjaxLectureCommand(command);
-				break;
+				return new CheckIdMatchesAjax();
 		}
 	
 		return iCmd;

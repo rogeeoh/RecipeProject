@@ -1,4 +1,4 @@
-package command.ajax;
+package command.manage.ajax;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -40,6 +40,7 @@ public class AjaxMemberCommand implements Command{
 		/* mem_no의 parseInt에서 exception의 예외처리 */
 		if(req.getParameter("mem_no") != null && !req.getParameter("mem_no").equals(""))
 			mem_no = Integer.parseInt((String)req.getParameter("mem_no"));
+		
 		String id = (String)req.getParameter("id");
 		String pw = (String)req.getParameter("pw");
 		String birth = (String)req.getParameter("birth");

@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
 import factory.RecipeFactory;
+import factory.SearchFactory;
 
-public class RecipeController extends HttpServlet{
+public class SearchController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
@@ -22,24 +23,20 @@ public class RecipeController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		String cmd = req.getParameter("cmd");
-		if(cmd != null)
-			cmd = cmd.toLowerCase();
+		// 어떤 게시판에서 검색을 할 것인지
+		// null이면 메인 검색
+		String board = req.getParameter("board");
+		if(board != null)
+			board = board.toLowerCase();
+		
+		String query = req.getParameter("query");
+		if(query != null)
+			query = query.toLowerCase();
+		
 
-		Integer recpNo = null;
-		String no = req.getParameter("no");
-		if(no != null)
-			recpNo = Integer.parseInt(no);
-		
-		Integer pageNo = 1;
-		String page = req.getParameter("page");
-		if(page != null)
-			pageNo = Integer.parseInt(page);
-		
-		
 		RequestDispatcher view = null;
-		RecipeFactory recpFactory = RecipeFactory.newInstance();
-		Command interfaceCmd = recpFactory.createInstance(cmd, recpNo, pageNo);
+		SearchFactory searchFactory = SearchFactory.newInstance();
+		Command interfaceCmd = searchFactory.createInstance(board, query);
 		String url = (String)interfaceCmd.processCommand(req, resp);
 				
 		view = req.getRequestDispatcher(url);

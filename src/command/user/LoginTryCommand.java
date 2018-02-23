@@ -20,10 +20,13 @@ public class LoginTryCommand implements Command{
 		String pw = req.getParameter("password");
 		String url = null;
 		/* DB로부터 비밀번호를 확인하는 코드 작성 */
-		boolean loginSuccess = new MemberDao().loginTry(id, pw);
+		MemberDao memberDao = new MemberDao(); 
+		boolean loginSuccess = memberDao.loginTry(id, pw);
 		
 		if(loginSuccess) {
 			session.setAttribute("id", id);
+			session.setAttribute("nick", memberDao.findMemberById(id).getNick());
+			session.setAttribute("mem_no", memberDao.findMemberById(id).getMem_no());
 			System.out.println("로그인 성공!");
 			url = "index.jsp";
 		}

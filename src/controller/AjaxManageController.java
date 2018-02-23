@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import factory.AjaxFactory;
+import factory.AjaxManageFactory;
 import factory.RecipeFactory;
 
-public class RecipeController extends HttpServlet{
+public class AjaxManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
@@ -22,27 +25,16 @@ public class RecipeController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		String cmd = req.getParameter("cmd");
-		if(cmd != null)
-			cmd = cmd.toLowerCase();
-
-		Integer recpNo = null;
-		String no = req.getParameter("no");
-		if(no != null)
-			recpNo = Integer.parseInt(no);
+		/* 만약 board가 parameter값이 존재하는 경우에는 무조건 admin의 권한이 필요 */
+		String board = req.getParameter("board");
+		String command = req.getParameter("cmd");
 		
-		Integer pageNo = 1;
-		String page = req.getParameter("page");
-		if(page != null)
-			pageNo = Integer.parseInt(page);
+		AjaxManageFactory ajaxManageFactory = AjaxManageFactory.newInstance();
+		Command ajaxCmd = ajaxManageFactory.createInstance(board, command);
+		String resonseText = (String)ajaxCmd.processCommand(req, resp);
 		
-		
-		RequestDispatcher view = null;
-		RecipeFactory recpFactory = RecipeFactory.newInstance();
-		Command interfaceCmd = recpFactory.createInstance(cmd, recpNo, pageNo);
-		String url = (String)interfaceCmd.processCommand(req, resp);
-				
-		view = req.getRequestDispatcher(url);
-		view.forward(req, resp);
+		PrintWriter out = resp.getWriter();
+		out.println(resonseText);
+		out.close();
 	}
 }
